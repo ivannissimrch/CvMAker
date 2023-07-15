@@ -9,9 +9,9 @@ const CaptureExperience = () => {
       <input type="text" placeholder="City" />
       <input type="number" placeholder="From" />
       <input type="number" placeholder="To" />
-      <button type="submit" id="delete-work">
+      {/* <button type="submit" id="delete-work">
         Delete
-      </button>
+      </button> */}
       <button type="submit" id="add-work">
         Add
       </button>

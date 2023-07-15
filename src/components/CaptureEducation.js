@@ -8,9 +8,9 @@ const CaptureEducation = () => {
       <input type="text" placeholder="Subject" />
       <input type="number" placeholder="From" />
       <input type="number" placeholder="To" />
-      <button type="submit" id="delete-edu">
+      {/* <button type="submit" id="delete-edu">
         Delete
-      </button>
+      </button> */}
       <button type="submit" id="add-edu">
         Add
       </button>

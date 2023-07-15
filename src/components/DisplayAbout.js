@@ -1,6 +1,15 @@
 import classes from "./DisplayAbout.module.css";
 import profileImage from "../images/profile.jpg";
-const Displayabout = () => {
+
+const DisplayAbout = ({
+  firstNameChange,
+  lastNameChange,
+  titleChange,
+  aboutChange,
+  phoneChange,
+  emailChange,
+  locationChange,
+}) => {
   return (
     <aside className={classes["about"]}>
       <div className={classes["about-header"]}>
@@ -9,27 +18,23 @@ const Displayabout = () => {
           src={profileImage}
           alt="profile_pic"
         />
-        <h2>First Name</h2>
-        <h2>Last Name</h2>
-        <h4>Title</h4>
+        <h2>{firstNameChange}</h2>
+        <h2>{lastNameChange}</h2>
+        <h4>{titleChange}</h4>
         <hr />
       </div>
       <div className={classes["about-body"]}>
         <h2>ABOUT ME</h2>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis,
-          excepturi. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Veritatis, excepturi.
-        </p>
+        <p className={classes["about-description"]}>{aboutChange}</p>
       </div>
       <div className={classes["about-footer"]}>
         <h2>CONTACT</h2>
-        <h4>Phone</h4>
-        <h4>email@email.com</h4>
-        <h4>Location</h4>
+        <h4>{phoneChange}</h4>
+        <h4>{emailChange}</h4>
+        <h4>{locationChange}</h4>
       </div>
     </aside>
   );
 };
 
-export default Displayabout;
+export default DisplayAbout;
