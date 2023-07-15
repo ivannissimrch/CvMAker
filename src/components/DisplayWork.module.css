@@ -1,0 +1,10 @@
+.experience{
+    width: 65%;
+    padding: 50px;
+   
+  }
+  
+  .work-section{
+    display: flex;
+    flex-direction: column;
+  }
