@@ -10,6 +10,7 @@ const CaptureSection = ({
   phoneChange,
   emailChange,
   locationChange,
+  imageChange,
 }) => {
   return (
     <section className={classes["edit-section"]}>
@@ -21,6 +22,7 @@ const CaptureSection = ({
         phoneChange={phoneChange}
         emailChange={emailChange}
         locationChange={locationChange}
+        imageChange={imageChange}
       />
       <CaptureEducation />
       <CaptureExperience />

@@ -1,10 +1,15 @@
 import classes from "./MainContainer.module.css";
 import CaptureSection from "./CaptureSection";
 import DisplaySection from "./DisplaySection";
+import profileImage from "../images/profile.jpg";
 import { useState } from "react";
 
 const MainContainer = () => {
   //manage state in here
+  const [updateImage, setUpdatedImage] = useState(profileImage);
+  const handleImage = (newImage) => {
+    setUpdatedImage(newImage);
+  };
   const [updateFirstName, setUpdatedFirstName] = useState("First Name");
   const handleFirstName = (fName) => {
     if (!fName) {
@@ -82,6 +87,7 @@ const MainContainer = () => {
         phoneChange={handlePhone}
         emailChange={handleEmail}
         locationChange={handleLocation}
+        imageChange={handleImage}
       />
       <DisplaySection
         firstNameChange={updateFirstName}
@@ -91,6 +97,7 @@ const MainContainer = () => {
         phoneChange={updatePhone}
         emailChange={updateEmail}
         locationChange={updateLocation}
+        imageChange={updateImage}
       />
     </div>
   );

@@ -11,6 +11,7 @@ const DisplaySection = ({
   phoneChange,
   emailChange,
   locationChange,
+  imageChange,
 }) => {
   return (
     <section className={classes["cv-section"]}>
@@ -22,6 +23,7 @@ const DisplaySection = ({
         phoneChange={phoneChange}
         emailChange={emailChange}
         locationChange={locationChange}
+        imageChange={imageChange}
       />
       <main className={classes["experience"]}>
         <DisplayWork />

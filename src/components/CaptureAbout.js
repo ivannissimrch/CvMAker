@@ -8,8 +8,14 @@ const CaptureAbout = ({
   phoneChange,
   emailChange,
   locationChange,
+  imageChange,
 }) => {
   //use state declarations
+  const handleImage = (event) => {
+    const image = URL.createObjectURL(event.target.files[0]);
+    imageChange(image);
+  };
+
   const [firstName, setFirstName] = useState("");
   const handleFirstName = (event) => {
     setFirstName(event.target.value);
@@ -59,6 +65,7 @@ const CaptureAbout = ({
         Upload Profile Picture
       </label>
       <input
+        onChange={handleImage}
         className={classes["upload-picture"]}
         type="file"
         id="profile_pic"

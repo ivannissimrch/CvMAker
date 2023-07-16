@@ -1,5 +1,4 @@
 import classes from "./DisplayAbout.module.css";
-import profileImage from "../images/profile.jpg";
 
 const DisplayAbout = ({
   firstNameChange,
@@ -9,13 +8,14 @@ const DisplayAbout = ({
   phoneChange,
   emailChange,
   locationChange,
+  imageChange,
 }) => {
   return (
     <aside className={classes["about"]}>
       <div className={classes["about-header"]}>
         <img
           className={classes["profile-picture"]}
-          src={profileImage}
+          src={`${imageChange}`}
           alt="profile_pic"
         />
         <h2>{firstNameChange}</h2>
