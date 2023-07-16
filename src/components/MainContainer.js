@@ -77,6 +77,14 @@ const MainContainer = () => {
     }
   };
 
+  //Work Experience state declarations
+  const [work, setWork] = useState({
+    Position: "NewPosition",
+    Company: "NewCompany",
+    City: "NewCity",
+    Year: "NewYear",
+  });
+
   return (
     <div className={classes["main-container"]}>
       <CaptureSection
@@ -90,6 +98,7 @@ const MainContainer = () => {
         imageChange={handleImage}
       />
       <DisplaySection
+        onWorkAdd={work}
         firstNameChange={updateFirstName}
         lastNameChange={updateLastName}
         titleChange={updateTitle}

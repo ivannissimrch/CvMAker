@@ -24,8 +24,8 @@ const CaptureSection = ({
         locationChange={locationChange}
         imageChange={imageChange}
       />
-      <CaptureEducation />
       <CaptureExperience />
+      <CaptureEducation />
     </section>
   );
 };

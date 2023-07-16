@@ -12,16 +12,28 @@
   
   .profile-picture{
     width: 150px;
-    height: 150px;
+    height: 150px;    
     border-radius: 50%;
+  }
+  .about-header{
+    width: 140px;
+    overflow-wrap: break-word; 
+
   }
 
   .about-body{
-    /* text-align: center;
-    overflow: hidden; */
+    width: 140px;
+    overflow-wrap: break-word; 
+ 
   }
 
   .about-description{
     
     
+  }
+
+  .about-footer{
+    width: 140px;
+    overflow-wrap: break-word; 
+
   }
