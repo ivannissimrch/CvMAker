@@ -11,6 +11,7 @@ const CaptureSection = ({
   emailChange,
   locationChange,
   imageChange,
+  onWorkchange,
 }) => {
   return (
     <section className={classes["edit-section"]}>
@@ -24,7 +25,7 @@ const CaptureSection = ({
         locationChange={locationChange}
         imageChange={imageChange}
       />
-      <CaptureExperience />
+      <CaptureExperience onWorkchange={onWorkchange} />
       <CaptureEducation />
     </section>
   );

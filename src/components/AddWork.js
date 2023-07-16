@@ -1,13 +1,14 @@
-import { Fragment } from "react";
+import classes from "./AddWork.module.css";
 
-const AddWork = ({ onWorkAdd }) => {
+const AddWork = ({ data }) => {
+  const { position, company, city, from, to } = data.newWorkData;
   return (
-    <Fragment>
-      <label>{onWorkAdd.Position}</label>
-      <label>{onWorkAdd.Company}</label>
-      <label>{onWorkAdd.City}</label>
-      <label>{onWorkAdd.Year}</label>
-    </Fragment>
+    <div className={classes["work-container"]}>
+      <label>{position}</label>
+      <label>{company}</label>
+      <label>{city}</label>
+      <label>{`from ${from} to ${to}`}</label>
+    </div>
   );
 };
 

@@ -78,12 +78,12 @@ const MainContainer = () => {
   };
 
   //Work Experience state declarations
-  const [work, setWork] = useState({
-    Position: "NewPosition",
-    Company: "NewCompany",
-    City: "NewCity",
-    Year: "NewYear",
-  });
+  const [work, setWork] = useState([]);
+  const handleOnWorkChange = (newWorkData) => {
+    setWork((prev) => [...prev, { newWorkData }]);
+    console.log(work);
+    console.log(newWorkData);
+  };
 
   return (
     <div className={classes["main-container"]}>
@@ -96,6 +96,7 @@ const MainContainer = () => {
         emailChange={handleEmail}
         locationChange={handleLocation}
         imageChange={handleImage}
+        onWorkchange={handleOnWorkChange}
       />
       <DisplaySection
         onWorkAdd={work}
