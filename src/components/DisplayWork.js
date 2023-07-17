@@ -1,7 +1,6 @@
 import AddWork from "./AddWork";
 import classes from "./DisplayWork.module.css";
 const DisplayWork = ({ onWorkAdd }) => {
-  console.log(onWorkAdd);
   return (
     <div className={classes["work-experience"]}>
       <h2>WORK EXPERIENCE</h2>

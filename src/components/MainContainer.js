@@ -81,8 +81,12 @@ const MainContainer = () => {
   const [work, setWork] = useState([]);
   const handleOnWorkChange = (newWorkData) => {
     setWork((prev) => [...prev, { newWorkData }]);
-    console.log(work);
-    console.log(newWorkData);
+  };
+
+  //education
+  const [education, setEducation] = useState([]);
+  const handleOnEducationChange = (newEducationData) => {
+    setEducation((prev) => [...prev, { newEducationData }]);
   };
 
   return (
@@ -97,9 +101,9 @@ const MainContainer = () => {
         locationChange={handleLocation}
         imageChange={handleImage}
         onWorkchange={handleOnWorkChange}
+        onEducationChange={handleOnEducationChange}
       />
       <DisplaySection
-        onWorkAdd={work}
         firstNameChange={updateFirstName}
         lastNameChange={updateLastName}
         titleChange={updateTitle}
@@ -108,6 +112,8 @@ const MainContainer = () => {
         emailChange={updateEmail}
         locationChange={updateLocation}
         imageChange={updateImage}
+        onWorkAdd={work}
+        onEducationAdd={education}
       />
     </div>
   );

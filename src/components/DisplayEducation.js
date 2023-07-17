@@ -1,13 +1,14 @@
+import AddEducation from "./AddEducation";
 import classes from "./DisplayEducation.module.css";
-const DisplayEducation = () => {
+const DisplayEducation = ({ onEducationAdd }) => {
+  console.log(onEducationAdd);
   return (
     <div className={classes["education"]}>
       <h2>EDUCATION</h2>
       <div className={classes["education-section"]}>
-        <label>University</label>
-        <label>Degree</label>
-        <label>Subject</label>
-        <label>Year</label>
+        {onEducationAdd.map((item, index) => (
+          <AddEducation key={index} data={item} />
+        ))}
       </div>
     </div>
   );
