@@ -16,7 +16,7 @@ const DisplaySection = ({
   onEducationAdd,
 }) => {
   return (
-    <section className={classes["cv-section"]}>
+    <section className={classes["cv-section"]} id="display">
       <DisplayAbout
         firstNameChange={firstNameChange}
         lastNameChange={lastNameChange}
