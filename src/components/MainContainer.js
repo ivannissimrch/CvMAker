@@ -83,10 +83,25 @@ const MainContainer = () => {
     setWork((prev) => [...prev, { newWorkData }]);
   };
 
+  const deleteWork = (id) => {
+    console.log(work);
+    const updateWork = work.filter((wrk) => {
+      return wrk.newWorkData.id !== id;
+    });
+    setWork(updateWork);
+  };
+
   //education
   const [education, setEducation] = useState([]);
   const handleOnEducationChange = (newEducationData) => {
     setEducation((prev) => [...prev, { newEducationData }]);
+  };
+
+  const deleteEducation = (id) => {
+    const updateEducation = education.filter((edu) => {
+      return edu.newEducationData.id !== id;
+    });
+    setEducation(updateEducation);
   };
 
   return (
@@ -114,6 +129,8 @@ const MainContainer = () => {
         imageChange={updateImage}
         onWorkAdd={work}
         onEducationAdd={education}
+        onDeleteEducation={deleteEducation}
+        onDeleteWork={deleteWork}
       />
     </div>
   );

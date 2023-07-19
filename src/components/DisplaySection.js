@@ -14,6 +14,8 @@ const DisplaySection = ({
   imageChange,
   onWorkAdd,
   onEducationAdd,
+  onDeleteEducation,
+  onDeleteWork,
 }) => {
   return (
     <section className={classes["cv-section"]} id="display">
@@ -28,8 +30,11 @@ const DisplaySection = ({
         imageChange={imageChange}
       />
       <main className={classes["experience"]}>
-        <DisplayWork onWorkAdd={onWorkAdd} />
-        <DisplayEducation onEducationAdd={onEducationAdd} />
+        <DisplayWork onWorkAdd={onWorkAdd} onDeleteWork={onDeleteWork} />
+        <DisplayEducation
+          onEducationAdd={onEducationAdd}
+          onDeleteEducation={onDeleteEducation}
+        />
       </main>
     </section>
   );

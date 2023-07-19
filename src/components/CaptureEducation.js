@@ -28,7 +28,14 @@ const CaptureEducation = ({ onEducationChange }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onEducationChange({ university, degree, subject, from, to });
+    onEducationChange({
+      id: `${university}${degree}`,
+      university,
+      degree,
+      subject,
+      from,
+      to,
+    });
     setUniversity("");
     setDegree("");
     setSubject("");

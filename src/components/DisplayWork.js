@@ -1,12 +1,12 @@
 import AddWork from "./AddWork";
 import classes from "./DisplayWork.module.css";
-const DisplayWork = ({ onWorkAdd }) => {
+const DisplayWork = ({ onWorkAdd, onDeleteWork }) => {
   return (
     <div className={classes["work-experience"]}>
       <h2>WORK EXPERIENCE</h2>
       <div className={classes["work-section"]}>
         {onWorkAdd.map((item, index) => (
-          <AddWork key={index} data={item} />
+          <AddWork key={index} data={item} onDeleteWork={onDeleteWork} />
         ))}
       </div>
     </div>

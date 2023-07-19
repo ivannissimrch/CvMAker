@@ -30,7 +30,14 @@ const CaptureExperience = ({ onWorkchange }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onWorkchange({ position, company, city, from, to });
+    onWorkchange({
+      id: `${position}${company}`,
+      position,
+      company,
+      city,
+      from,
+      to,
+    });
     setPosition("");
     setCompany("");
     setCity("");
