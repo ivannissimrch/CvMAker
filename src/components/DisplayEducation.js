@@ -1,8 +1,10 @@
 import AddEducation from "./AddEducation";
 import classes from "./DisplayEducation.module.css";
-const DisplayEducation = ({ onEducationAdd, onDeleteEducation }) => {
-  console.log(onEducationAdd);
-
+const DisplayEducation = ({
+  onEducationAdd,
+  onDeleteEducation,
+  onEditEducation,
+}) => {
   return (
     <div className={classes["education"]}>
       <h2>EDUCATION</h2>
@@ -12,6 +14,7 @@ const DisplayEducation = ({ onEducationAdd, onDeleteEducation }) => {
             key={index}
             data={item}
             onDeleteEducation={onDeleteEducation}
+            onEditEducation={onEditEducation}
           />
         ))}
       </div>

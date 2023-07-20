@@ -1,15 +1,17 @@
 import classes from "./AddWork.module.css";
-import { useState } from "react";
-const AddEducation = ({ data, onDeleteEducation }) => {
+import { Fragment, useState } from "react";
+import EditEducation from "./EditEducation";
+const AddEducation = ({ data, onDeleteEducation, onEditEducation }) => {
   const { id, university, degree, subject, from, to } = data;
   const [showButton, setShowButton] = useState(false);
+  const [showEditEducation, setShowEditEducation] = useState(false);
 
   const handleDelete = (event) => {
     onDeleteEducation(id);
-    console.log("delet");
   };
-  const handleEdit = () => {
-    console.log("editing");
+  const handleShowEdit = () => {
+    setShowButton(!showButton);
+    setShowEditEducation(!showEditEducation);
   };
   const handleMouseEnter = () => {
     setShowButton(true);
@@ -19,22 +21,31 @@ const AddEducation = ({ data, onDeleteEducation }) => {
   };
   const buttons = (
     <div>
-      <button onClick={handleEdit}>Edit</button>{" "}
+      <button onClick={handleShowEdit}>Edit</button>{" "}
       <button onClick={handleDelete}>Delete</button>{" "}
     </div>
   );
   return (
-    <div
-      className={classes["work-container"]}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <label>{university}</label>
-      <label>{degree}</label>
-      <label>{subject}</label>
-      <label>{`from ${from} to ${to}`}</label>
-      {showButton && buttons}
-    </div>
+    <Fragment>
+      <div
+        className={classes["work-container"]}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <label>{university}</label>
+        <label>{degree}</label>
+        <label>{subject}</label>
+        <label>{`from ${from} to ${to}`}</label>
+        {showButton && buttons}
+      </div>
+      {showEditEducation && (
+        <EditEducation
+          data={data}
+          closeEdit={handleShowEdit}
+          onEditEducation={onEditEducation}
+        />
+      )}
+    </Fragment>
   );
 };
 

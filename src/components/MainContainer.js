@@ -5,7 +5,7 @@ import profileImage from "../images/profile.jpg";
 import { useState } from "react";
 
 const MainContainer = () => {
-  //manage state in here
+  //About section state and handlers
   const [updateImage, setUpdatedImage] = useState(profileImage);
   const handleImage = (newImage) => {
     setUpdatedImage(newImage);
@@ -18,7 +18,6 @@ const MainContainer = () => {
       setUpdatedFirstName(fName);
     }
   };
-
   const [updateLastName, setUpdatedLastName] = useState("Last Name");
   const handleLastName = (lName) => {
     if (!lName) {
@@ -27,7 +26,6 @@ const MainContainer = () => {
       setUpdatedLastName(lName);
     }
   };
-
   const [updateTitle, setUpdatedTitle] = useState("Title");
   const handleTitle = (newTitle) => {
     if (!newTitle) {
@@ -36,7 +34,6 @@ const MainContainer = () => {
       setUpdatedTitle(newTitle);
     }
   };
-
   const [updateAbout, setUpdatedAbout] = useState(
     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, excepturi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, excepturi."
   );
@@ -49,7 +46,6 @@ const MainContainer = () => {
       setUpdatedAbout(newAbout);
     }
   };
-
   const [updatePhone, setUpdatedPhone] = useState("phone");
   const handlePhone = (newPhone) => {
     if (!newPhone) {
@@ -58,7 +54,6 @@ const MainContainer = () => {
       setUpdatedPhone(newPhone);
     }
   };
-
   const [updateEmail, setUpdatedEmail] = useState("Email");
   const handleEmail = (newEmail) => {
     if (!newEmail) {
@@ -67,7 +62,6 @@ const MainContainer = () => {
       setUpdatedEmail(newEmail);
     }
   };
-
   const [updateLocation, setUpdatedLocation] = useState("Location");
   const handleLocation = (newLocation) => {
     if (!newLocation) {
@@ -76,20 +70,19 @@ const MainContainer = () => {
       setUpdatedLocation(newLocation);
     }
   };
+  //About section state and handlers
 
-  //Work Experience state declarations
+  //Work Experience state and handlers
   const [work, setWork] = useState([]);
   const handleOnWorkChange = (newWorkData) => {
     setWork((prev) => [...prev, newWorkData]);
   };
-
   const deleteWork = (id) => {
     const updateWork = work.filter((wrk) => {
       return wrk.id !== id;
     });
     setWork(updateWork);
   };
-
   const editWork = (updatedValues) => {
     const updateWork = work.map((wrk) => {
       if (wrk.id === updatedValues.id) {
@@ -100,19 +93,32 @@ const MainContainer = () => {
 
     setWork(updateWork);
   };
+  //Work Experience state and handlers
 
-  //education
+  //Education state and handlers
   const [education, setEducation] = useState([]);
   const handleOnEducationChange = (newEducationData) => {
     setEducation((prev) => [...prev, newEducationData]);
   };
-
   const deleteEducation = (id) => {
     const updateEducation = education.filter((edu) => {
       return edu.id !== id;
     });
     setEducation(updateEducation);
   };
+
+  const editEducation = (updatedValues) => {
+    console.log(updatedValues);
+    const updateEducation = education.map((edu) => {
+      if (edu.id === updatedValues.id) {
+        return { ...edu, ...updatedValues };
+      }
+      return edu;
+    });
+
+    setEducation(updateEducation);
+  };
+  //Education state and handlers
 
   return (
     <div className={classes["main-container"]}>
@@ -142,6 +148,7 @@ const MainContainer = () => {
         onDeleteEducation={deleteEducation}
         onDeleteWork={deleteWork}
         onEditWork={editWork}
+        onEditEducation={editEducation}
       />
     </div>
   );

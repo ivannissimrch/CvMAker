@@ -17,6 +17,7 @@ const DisplaySection = ({
   onDeleteEducation,
   onDeleteWork,
   onEditWork,
+  onEditEducation,
 }) => {
   return (
     <section className={classes["cv-section"]} id="display">
@@ -39,6 +40,7 @@ const DisplaySection = ({
         <DisplayEducation
           onEducationAdd={onEducationAdd}
           onDeleteEducation={onDeleteEducation}
+          onEditEducation={onEditEducation}
         />
       </main>
     </section>

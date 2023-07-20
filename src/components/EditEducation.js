@@ -1,21 +1,21 @@
 import { useState } from "react";
 import classes from "./CaptureExperience.module.css";
 
-const EditWork = ({ data, closeEdit, onEditWork }) => {
+const EditEducation = ({ data, closeEdit, onEditEducation }) => {
   //use an objec t to pass new data values
-  const [position, setPosition] = useState(data.position);
-  const handlePosition = (event) => {
-    setPosition(event.target.value);
+  const [university, setUniversity] = useState(data.university);
+  const handleUniversity = (event) => {
+    setUniversity(event.target.value);
   };
 
-  const [company, setCompany] = useState(data.company);
-  const handleCompany = (event) => {
-    setCompany(event.target.value);
+  const [degree, setDegree] = useState(data.degree);
+  const handleDegree = (event) => {
+    setDegree(event.target.value);
   };
 
-  const [city, setCity] = useState(data.city);
-  const handleCity = (event) => {
-    setCity(event.target.value);
+  const [subject, setSubject] = useState(data.subject);
+  const handleSubject = (event) => {
+    setSubject(event.target.value);
   };
 
   const [from, setFrom] = useState(data.from);
@@ -31,11 +31,11 @@ const EditWork = ({ data, closeEdit, onEditWork }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     closeEdit();
-    onEditWork({
+    onEditEducation({
       id: data.id,
-      position,
-      company,
-      city,
+      university,
+      degree,
+      subject,
       from,
       to,
     });
@@ -44,21 +44,21 @@ const EditWork = ({ data, closeEdit, onEditWork }) => {
     <form className={classes["experience-edit"]} onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Position"
-        onChange={handlePosition}
-        value={position}
+        placeholder="University"
+        onChange={handleUniversity}
+        value={university}
       />
       <input
         type="text"
-        placeholder="Company"
-        value={company}
-        onChange={handleCompany}
+        placeholder="Degree"
+        value={degree}
+        onChange={handleDegree}
       />
       <input
         type="text"
-        placeholder="City"
-        value={city}
-        onChange={handleCity}
+        placeholder="Subject"
+        value={subject}
+        onChange={handleSubject}
       />
       <input
         type="number"
@@ -68,11 +68,11 @@ const EditWork = ({ data, closeEdit, onEditWork }) => {
       />
       <input type="number" placeholder="To" value={to} onChange={handleTo} />
 
-      <button type="submit" id="add-work">
+      <button type="submit" id="add-education">
         Save Changes
       </button>
     </form>
   );
 };
 
-export default EditWork;
+export default EditEducation;
