@@ -80,26 +80,36 @@ const MainContainer = () => {
   //Work Experience state declarations
   const [work, setWork] = useState([]);
   const handleOnWorkChange = (newWorkData) => {
-    setWork((prev) => [...prev, { newWorkData }]);
+    setWork((prev) => [...prev, newWorkData]);
   };
 
   const deleteWork = (id) => {
-    console.log(work);
     const updateWork = work.filter((wrk) => {
-      return wrk.newWorkData.id !== id;
+      return wrk.id !== id;
     });
+    setWork(updateWork);
+  };
+
+  const editWork = (updatedValues) => {
+    const updateWork = work.map((wrk) => {
+      if (wrk.id === updatedValues.id) {
+        return { ...wrk, ...updatedValues };
+      }
+      return wrk;
+    });
+
     setWork(updateWork);
   };
 
   //education
   const [education, setEducation] = useState([]);
   const handleOnEducationChange = (newEducationData) => {
-    setEducation((prev) => [...prev, { newEducationData }]);
+    setEducation((prev) => [...prev, newEducationData]);
   };
 
   const deleteEducation = (id) => {
     const updateEducation = education.filter((edu) => {
-      return edu.newEducationData.id !== id;
+      return edu.id !== id;
     });
     setEducation(updateEducation);
   };
@@ -131,6 +141,7 @@ const MainContainer = () => {
         onEducationAdd={education}
         onDeleteEducation={deleteEducation}
         onDeleteWork={deleteWork}
+        onEditWork={editWork}
       />
     </div>
   );

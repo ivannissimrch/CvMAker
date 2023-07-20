@@ -1,7 +1,7 @@
 import classes from "./AddWork.module.css";
 import { useState } from "react";
 const AddEducation = ({ data, onDeleteEducation }) => {
-  const { id, university, degree, subject, from, to } = data.newEducationData;
+  const { id, university, degree, subject, from, to } = data;
   const [showButton, setShowButton] = useState(false);
 
   const handleDelete = (event) => {
