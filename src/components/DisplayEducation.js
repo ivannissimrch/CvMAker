@@ -1,7 +1,7 @@
 import AddEducation from "./AddEducation";
 import classes from "./DisplayEducation.module.css";
 const DisplayEducation = ({
-  onEducationAdd,
+  onAddEducation,
   onDeleteEducation,
   onEditEducation,
 }) => {
@@ -9,7 +9,7 @@ const DisplayEducation = ({
     <div className={classes["education"]}>
       <h2>EDUCATION</h2>
       <div className={classes["education-section"]}>
-        {onEducationAdd.map((item, index) => (
+        {onAddEducation.map((item, index) => (
           <AddEducation
             key={index}
             data={item}

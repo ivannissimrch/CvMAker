@@ -6,6 +6,8 @@ import { useState } from "react";
 
 const MainContainer = () => {
   //About section state and handlers
+  //I need to refractor this section maybe using an object but not sure it will work
+  // updating the about section as I type on the capture about section.
   const [updateImage, setUpdatedImage] = useState(profileImage);
   const handleImage = (newImage) => {
     setUpdatedImage(newImage);
@@ -74,15 +76,18 @@ const MainContainer = () => {
 
   //Work Experience state and handlers
   const [work, setWork] = useState([]);
+  //add element to work array
   const handleOnWorkChange = (newWorkData) => {
     setWork((prev) => [...prev, newWorkData]);
   };
+  //delete element on work array
   const deleteWork = (id) => {
     const updateWork = work.filter((wrk) => {
       return wrk.id !== id;
     });
     setWork(updateWork);
   };
+  //edit element on work array
   const editWork = (updatedValues) => {
     const updateWork = work.map((wrk) => {
       if (wrk.id === updatedValues.id) {
@@ -97,16 +102,18 @@ const MainContainer = () => {
 
   //Education state and handlers
   const [education, setEducation] = useState([]);
+  //add element to education array
   const handleOnEducationChange = (newEducationData) => {
     setEducation((prev) => [...prev, newEducationData]);
   };
+  //delete element on education array
   const deleteEducation = (id) => {
     const updateEducation = education.filter((edu) => {
       return edu.id !== id;
     });
     setEducation(updateEducation);
   };
-
+  //edit element on education array
   const editEducation = (updatedValues) => {
     console.log(updatedValues);
     const updateEducation = education.map((edu) => {
@@ -131,7 +138,7 @@ const MainContainer = () => {
         emailChange={handleEmail}
         locationChange={handleLocation}
         imageChange={handleImage}
-        onWorkchange={handleOnWorkChange}
+        onWorkChange={handleOnWorkChange}
         onEducationChange={handleOnEducationChange}
       />
       <DisplaySection
@@ -143,8 +150,8 @@ const MainContainer = () => {
         emailChange={updateEmail}
         locationChange={updateLocation}
         imageChange={updateImage}
-        onWorkAdd={work}
-        onEducationAdd={education}
+        onAddWork={work}
+        onAddEducation={education}
         onDeleteEducation={deleteEducation}
         onDeleteWork={deleteWork}
         onEditWork={editWork}

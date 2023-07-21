@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./CaptureExperience.module.css";
 
-const CaptureExperience = ({ onWorkchange }) => {
+const CaptureWork = ({ onWorkChange }) => {
   //use an objec t to pass new data values
   const [position, setPosition] = useState("");
   const handlePosition = (event) => {
@@ -30,7 +30,7 @@ const CaptureExperience = ({ onWorkchange }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onWorkchange({
+    onWorkChange({
       id: `${position}${company}`,
       position,
       company,
@@ -80,4 +80,4 @@ const CaptureExperience = ({ onWorkchange }) => {
   );
 };
 
-export default CaptureExperience;
+export default CaptureWork;

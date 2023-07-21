@@ -12,8 +12,8 @@ const DisplaySection = ({
   emailChange,
   locationChange,
   imageChange,
-  onWorkAdd,
-  onEducationAdd,
+  onAddWork,
+  onAddEducation,
   onDeleteEducation,
   onDeleteWork,
   onEditWork,
@@ -33,12 +33,12 @@ const DisplaySection = ({
       />
       <main className={classes["experience"]}>
         <DisplayWork
-          onWorkAdd={onWorkAdd}
+          onAddWork={onAddWork}
           onDeleteWork={onDeleteWork}
           onEditWork={onEditWork}
         />
         <DisplayEducation
-          onEducationAdd={onEducationAdd}
+          onAddEducation={onAddEducation}
           onDeleteEducation={onDeleteEducation}
           onEditEducation={onEditEducation}
         />

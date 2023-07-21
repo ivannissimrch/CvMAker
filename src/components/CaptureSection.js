@@ -1,6 +1,6 @@
 import CaptureAbout from "./CaptureAbout";
 import CaptureEducation from "./CaptureEducation";
-import CaptureExperience from "./CaptureExperience";
+import CaptureWork from "./CaptureWork";
 import classes from "./CaptureSection.module.css";
 const CaptureSection = ({
   firstNameChange,
@@ -11,7 +11,7 @@ const CaptureSection = ({
   emailChange,
   locationChange,
   imageChange,
-  onWorkchange,
+  onWorkChange,
   onEducationChange,
 }) => {
   return (
@@ -26,7 +26,7 @@ const CaptureSection = ({
         locationChange={locationChange}
         imageChange={imageChange}
       />
-      <CaptureExperience onWorkchange={onWorkchange} />
+      <CaptureWork onWorkChange={onWorkChange} />
       <CaptureEducation onEducationChange={onEducationChange} />
     </section>
   );
