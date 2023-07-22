@@ -5,7 +5,6 @@ import profileImage from "../images/profile.jpg";
 import { useState } from "react";
 
 const MainContainer = () => {
-  //About section state and handlers
   //I need to refractor this section maybe using an object but not sure it will work
   // updating the about section as I type on the capture about section.
   const [updateImage, setUpdatedImage] = useState(profileImage);
@@ -67,7 +66,7 @@ const MainContainer = () => {
   const [updateLocation, setUpdatedLocation] = useState("Location");
   const handleLocation = (newLocation) => {
     if (!newLocation) {
-      setUpdatedLocation("Email");
+      setUpdatedLocation("Location");
     } else {
       setUpdatedLocation(newLocation);
     }

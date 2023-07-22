@@ -13,9 +13,9 @@ const EditEducation = ({ data, closeEdit, onEditEducation }) => {
     setDegree(event.target.value);
   };
 
-  const [subject, setSubject] = useState(data.subject);
-  const handleSubject = (event) => {
-    setSubject(event.target.value);
+  const [city, setCity] = useState(data.city);
+  const handleCity = (event) => {
+    setCity(event.target.value);
   };
 
   const [from, setFrom] = useState(data.from);
@@ -35,7 +35,7 @@ const EditEducation = ({ data, closeEdit, onEditEducation }) => {
       id: data.id,
       university,
       degree,
-      subject,
+      city,
       from,
       to,
     });
@@ -56,9 +56,9 @@ const EditEducation = ({ data, closeEdit, onEditEducation }) => {
       />
       <input
         type="text"
-        placeholder="Subject"
-        value={subject}
-        onChange={handleSubject}
+        placeholder="city"
+        value={city}
+        onChange={handleCity}
       />
       <input
         type="number"

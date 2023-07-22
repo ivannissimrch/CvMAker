@@ -2,10 +2,11 @@ import { Fragment, useState } from "react";
 import classes from "./AddWork.module.css";
 import EditWork from "./EditWork";
 
-const AddWork = ({ data, onDeleteWork, onEditWork }) => {
+const Work = ({ data, onDeleteWork, onEditWork }) => {
   const { id, position, company, city, from, to } = data;
   const [showButton, setShowButton] = useState(false);
   const [showEditWork, setShowEditwork] = useState(false);
+  const [showWork, setShowWork] = useState(true);
 
   const handleDelete = (event) => {
     onDeleteWork(id);
@@ -13,6 +14,7 @@ const AddWork = ({ data, onDeleteWork, onEditWork }) => {
   const handleShowEdit = () => {
     setShowButton(!showButton);
     setShowEditwork(!showEditWork);
+    setShowWork(!showWork);
   };
   const handleMouseEnter = () => {
     setShowButton(true);
@@ -28,20 +30,22 @@ const AddWork = ({ data, onDeleteWork, onEditWork }) => {
     </div>
   );
 
+  const work = (
+    <div
+      className={classes["work-container"]}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <label>{`${company.toUpperCase()} | ${from} - ${to}`}</label>
+      <label>{`${position}, ${city}`}</label>
+
+      {showButton && buttons}
+    </div>
+  );
+
   return (
     <Fragment>
-      <div
-        className={classes["work-container"]}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <label>{position}</label>
-        <label>{company}</label>
-        <label>{city}</label>
-        <label>{`from ${from} to ${to}`}</label>
-
-        {showButton && buttons}
-      </div>
+      {showWork && work}
       {showEditWork && (
         <EditWork
           data={data}
@@ -53,4 +57,4 @@ const AddWork = ({ data, onDeleteWork, onEditWork }) => {
   );
 };
 
-export default AddWork;
+export default Work;

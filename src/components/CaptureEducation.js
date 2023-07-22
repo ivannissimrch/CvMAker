@@ -11,9 +11,9 @@ const CaptureEducation = ({ onEducationChange }) => {
     setDegree(event.target.value);
   };
 
-  const [subject, setSubject] = useState("");
-  const handleSubject = (event) => {
-    setSubject(event.target.value);
+  const [city, setCity] = useState("");
+  const handleCity = (event) => {
+    setCity(event.target.value);
   };
 
   const [from, setFrom] = useState("");
@@ -32,13 +32,13 @@ const CaptureEducation = ({ onEducationChange }) => {
       id: `${university}${degree}`,
       university,
       degree,
-      subject,
+      city,
       from,
       to,
     });
     setUniversity("");
     setDegree("");
-    setSubject("");
+    setCity("");
     setFrom("");
     setTo("");
   };
@@ -60,9 +60,9 @@ const CaptureEducation = ({ onEducationChange }) => {
       />
       <input
         type="text"
-        placeholder="Subject"
-        onChange={handleSubject}
-        value={subject}
+        placeholder="city"
+        onChange={handleCity}
+        value={city}
       />
       <input
         type="number"

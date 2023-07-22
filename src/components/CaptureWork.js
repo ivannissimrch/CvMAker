@@ -1,5 +1,5 @@
 import { useState } from "react";
-import classes from "./CaptureExperience.module.css";
+import classes from "./CaptureWork.module.css";
 
 const CaptureWork = ({ onWorkChange }) => {
   //use an objec t to pass new data values
