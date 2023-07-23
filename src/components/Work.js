@@ -4,10 +4,14 @@ import EditWork from "./EditWork";
 
 const Work = ({ data, onDeleteWork, onEditWork }) => {
   const { id, position, company, city, from, to } = data;
+  //use the following states to hide and show components
   const [showButton, setShowButton] = useState(false);
   const [showEditWork, setShowEditwork] = useState(false);
   const [showWork, setShowWork] = useState(true);
+  //use the following states to hide and show components
 
+  //functions to handle Delete, ShowEdit and Show/hide buttons on mouse enter and
+  //mouse leave
   const handleDelete = (event) => {
     onDeleteWork(id);
   };
@@ -22,6 +26,8 @@ const Work = ({ data, onDeleteWork, onEditWork }) => {
   const handleMouseLeave = () => {
     setShowButton(false);
   };
+  //functions to handle Delete, ShowEdit and Show/hide buttons on mouse enter and
+  //mouse leave
 
   const buttons = (
     <div>

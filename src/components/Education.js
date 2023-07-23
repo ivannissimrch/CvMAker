@@ -3,10 +3,14 @@ import { Fragment, useState } from "react";
 import EditEducation from "./EditEducation";
 const Education = ({ data, onDeleteEducation, onEditEducation }) => {
   const { id, university, degree, city, from, to } = data;
+  //use the following states to hide and show components
   const [showButton, setShowButton] = useState(false);
   const [showEditEducation, setShowEditEducation] = useState(false);
   const [showEducation, setShowEducation] = useState(true);
+  //use the following states to hide and show components
 
+  //functions to handle Delete, ShowEdit and Show/hide buttons on mouse enter and
+  //mouse leave
   const handleDelete = (event) => {
     onDeleteEducation(id);
   };
@@ -21,6 +25,8 @@ const Education = ({ data, onDeleteEducation, onEditEducation }) => {
   const handleMouseLeave = () => {
     setShowButton(false);
   };
+  //functions to handle Delete, ShowEdit and Show/hide buttons on mouse enter and
+  //mouse leave
   const buttons = (
     <div>
       <button onClick={handleShowEdit}>Edit</button>{" "}

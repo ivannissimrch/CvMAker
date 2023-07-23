@@ -5,7 +5,7 @@ import profileImage from "../images/profile.jpg";
 import { useState } from "react";
 
 const MainContainer = () => {
-  //I need to refractor this section maybe using an object but not sure it will work
+  //I need to refractor about section state and functions  maybe using an object but not sure how to do it yet
   // updating the about section as I type on the capture about section.
   const [updateImage, setUpdatedImage] = useState(profileImage);
   const handleImage = (newImage) => {
@@ -74,8 +74,11 @@ const MainContainer = () => {
   //About section state and handlers
 
   //Work Experience state and handlers
+  //use state iniciatlize the value of work to an aempy array
   const [work, setWork] = useState([]);
-  //add element to work array
+  //add element to work array, it recives an object from captureWork Element and
+  //update the array then we can use the work array to update the work display on
+  //DisplayWork
   const handleOnWorkChange = (newWorkData) => {
     setWork((prev) => [...prev, newWorkData]);
   };
@@ -150,10 +153,10 @@ const MainContainer = () => {
         locationChange={updateLocation}
         imageChange={updateImage}
         onAddWork={work}
-        onAddEducation={education}
-        onDeleteEducation={deleteEducation}
         onDeleteWork={deleteWork}
         onEditWork={editWork}
+        onAddEducation={education}
+        onDeleteEducation={deleteEducation}
         onEditEducation={editEducation}
       />
     </div>

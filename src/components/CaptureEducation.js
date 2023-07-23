@@ -1,6 +1,8 @@
 import { useState } from "react";
 import classes from "./CaptureEducation.module.css";
 const CaptureEducation = ({ onEducationChange }) => {
+  //Declare state management variables  and their corresponding functions
+  // to set new state on new values on inputs
   const [university, setUniversity] = useState("");
   const handleUniversity = (event) => {
     setUniversity(event.target.value);
@@ -25,7 +27,10 @@ const CaptureEducation = ({ onEducationChange }) => {
   const handleTo = (event) => {
     setTo(event.target.value);
   };
+  //Declare state management variables  and their corresponding functions
+  // to set new state on new values on inputs
 
+  //handleSubmit function sends a new object to the parent element using the onWorkChange function
   const handleSubmit = (event) => {
     event.preventDefault();
     onEducationChange({
@@ -42,6 +47,7 @@ const CaptureEducation = ({ onEducationChange }) => {
     setFrom("");
     setTo("");
   };
+  //handleSubmit function sends a new object to the parent element using the onWorkChange function
 
   return (
     <form className={classes["education-edit"]} onSubmit={handleSubmit}>

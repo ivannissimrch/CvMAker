@@ -1,0 +1,83 @@
+[33mcommit 768eec5242c883c982182b1e53288f920010cf44[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Ivan <ivannissimrch@gmail.com>
+Date:   Sat Jul 22 16:19:16 2023 -0400
+
+    updated work component to hide work component while editing component instead of display edit work under work component
+
+[33mcommit 06ebb646565acb7d2cf83e8ae7c37e1839edec64[m
+Author: Ivan <ivannissimrch@gmail.com>
+Date:   Thu Jul 20 21:03:01 2023 -0400
+
+    updated readme to include components tree
+
+[33mcommit fb43e41a7680d45f0007a9446ea20684146a40b8[m
+Author: Ivan <ivannissimrch@gmail.com>
+Date:   Thu Jul 20 19:23:47 2023 -0400
+
+    add functionality to edit Education and save changes
+
+[33mcommit ac6dddca0d9073dfa79c295bec5955fe8d5211b5[m
+Author: Ivan <ivannissimrch@gmail.com>
+Date:   Wed Jul 19 21:15:59 2023 -0400
+
+    add functionality to edit button on AddWork section
+
+[33mcommit 3d7aab8bbcae1d42d924076e63e800569bddbbfb[m
+Author: Ivan <ivannissimrch@gmail.com>
+Date:   Tue Jul 18 20:19:43 2023 -0400
+
+    add delete and edit buttons to education and work experiece elements, functionality added to delete still nedd to add functionallity to edit btn
+
+[33mcommit 0990084196cce7ea9f225a3edfc7d3dd4eca5845[m
+Author: Ivan <ivannissimrch@gmail.com>
+Date:   Mon Jul 17 21:08:44 2023 -0400
+
+    addbutton to save resume as pdf
+
+[33mcommit 84a0a0a16ff7f345061f2af3268d098b2344fb78[m
+Author: Ivan <ivannissimrch@gmail.com>
+Date:   Sun Jul 16 21:37:56 2023 -0400
+
+    add functionality to add  and dsiplay education
+
+[33mcommit a168bd341f17889fb2bfeb949398b507819191f9[m
+Author: Ivan <ivannissimrch@gmail.com>
+Date:   Sun Jul 16 18:17:01 2023 -0400
+
+    add functionality to add  work experience
+
+[33mcommit ed941a0509cfa08854ed2fca4a78b9ae0c67ed69[m
+Author: Ivan <ivannissimrch@gmail.com>
+Date:   Sun Jul 16 10:16:39 2023 -0400
+
+    fix text on display about me section from overflowing from section
+
+[33mcommit e3ca8b966b7fd0f2243c6292868114b31a2651ed[m
+Author: Ivan <ivannissimrch@gmail.com>
+Date:   Sat Jul 15 20:15:46 2023 -0400
+
+    add uploading profile image functionality
+
+[33mcommit d45f8a0161cf7285e405df212470bdf797af5239[m
+Author: Ivan <ivannissimrch@gmail.com>
+Date:   Sat Jul 15 18:46:10 2023 -0400
+
+    add functionallity, accept about me data on form  and display about me data on cv
+
+[33mcommit cf878cbe99abb9cebf5e544d18b2e5d2af1e96f2[m
+Author: Ivan <ivannissimrch@gmail.com>
+Date:   Fri Jul 14 21:01:53 2023 -0400
+
+    divide code in components
+
+[33mcommit c907177765fd80d3a258da492b8ad19a0b267f67[m
+Author: Ivan <ivannissimrch@gmail.com>
+Date:   Thu Jul 13 22:00:42 2023 -0400
+
+    add site screenshot to reame
+
+[33mcommit baf7a4607ccbb977c0c2031d19b333cd9167ed23[m
+Author: Ivan <ivannissimrch@gmail.com>
+Date:   Wed Jul 12 22:00:40 2023 -0400
+
+    add base layout

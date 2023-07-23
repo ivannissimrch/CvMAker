@@ -2,7 +2,8 @@ import { useState } from "react";
 import classes from "./CaptureWork.module.css";
 
 const CaptureWork = ({ onWorkChange }) => {
-  //use an objec t to pass new data values
+  //Declare state management variables  and their corresponding functions
+  // to set new state on new values on inputs
   const [position, setPosition] = useState("");
   const handlePosition = (event) => {
     setPosition(event.target.value);
@@ -27,7 +28,10 @@ const CaptureWork = ({ onWorkChange }) => {
   const handleTo = (event) => {
     setTo(event.target.value);
   };
+  //Declare state management variables  and their corresponding functions
+  // to set new state on new values on inputs
 
+  //handleSubmit function sends a new object to the parent element using the onWorkChange function
   const handleSubmit = (event) => {
     event.preventDefault();
     onWorkChange({
@@ -44,6 +48,7 @@ const CaptureWork = ({ onWorkChange }) => {
     setFrom("");
     setTo("");
   };
+  //handleSubmit function sends a new object to the parent element using the onWorkChange function
   return (
     <form className={classes["experience-edit"]} onSubmit={handleSubmit}>
       <label>WORK EXPERIENCE</label>

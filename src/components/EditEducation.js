@@ -2,7 +2,7 @@ import { useState } from "react";
 import classes from "./CaptureExperience.module.css";
 
 const EditEducation = ({ data, closeEdit, onEditEducation }) => {
-  //use an objec t to pass new data values
+  //state value declaration and handlers to set new value while editing Work element
   const [university, setUniversity] = useState(data.university);
   const handleUniversity = (event) => {
     setUniversity(event.target.value);
@@ -27,7 +27,9 @@ const EditEducation = ({ data, closeEdit, onEditEducation }) => {
   const handleTo = (event) => {
     setTo(event.target.value);
   };
+  //state value declaration and handlers to set new value while editing Work element
 
+  //use on editEducation to send new object to parent elemet to update old object
   const handleSubmit = (event) => {
     event.preventDefault();
     closeEdit();
