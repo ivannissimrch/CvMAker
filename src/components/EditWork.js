@@ -1,5 +1,5 @@
 import { useState } from "react";
-import classes from "./CaptureExperience.module.css";
+import classes from "./CaptureWork.module.css";
 
 const EditWork = ({ data, closeEdit, onEditWork }) => {
   //state value declaration and handlers to set new value while editing Work element

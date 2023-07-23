@@ -1,17 +1,8 @@
 import classes from "./DisplaySection.module.css";
-
 import DisplayAbout from "./DisplayAbout";
 import DisplayEducation from "./DisplayEducation";
 import DisplayWork from "./DisplayWork";
 const DisplaySection = ({
-  // firstNameChange,
-  // lastNameChange,
-  // titleChange,
-  // aboutChange,
-  // phoneChange,
-  // emailChange,
-  // locationChange,
-  // imageChange,
   aboutData,
   onAddWork,
   onAddEducation,

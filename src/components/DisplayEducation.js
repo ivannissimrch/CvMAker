@@ -13,9 +13,9 @@ const DisplayEducation = ({
       and the creates one Work element per each object inside that array. 
       the pass data as props in here data is and object with the correcsponding data from
        onAddwork array*/}
-        {onAddEducation.map((item, index) => (
+        {onAddEducation.map((item) => (
           <Education
-            key={index}
+            key={item.id}
             data={item}
             onDeleteEducation={onDeleteEducation}
             onEditEducation={onEditEducation}
