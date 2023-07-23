@@ -4,14 +4,15 @@ import DisplayAbout from "./DisplayAbout";
 import DisplayEducation from "./DisplayEducation";
 import DisplayWork from "./DisplayWork";
 const DisplaySection = ({
-  firstNameChange,
-  lastNameChange,
-  titleChange,
-  aboutChange,
-  phoneChange,
-  emailChange,
-  locationChange,
-  imageChange,
+  // firstNameChange,
+  // lastNameChange,
+  // titleChange,
+  // aboutChange,
+  // phoneChange,
+  // emailChange,
+  // locationChange,
+  // imageChange,
+  aboutData,
   onAddWork,
   onAddEducation,
   onDeleteEducation,
@@ -21,16 +22,7 @@ const DisplaySection = ({
 }) => {
   return (
     <section className={classes["cv-section"]} id="display">
-      <DisplayAbout
-        firstNameChange={firstNameChange}
-        lastNameChange={lastNameChange}
-        titleChange={titleChange}
-        aboutChange={aboutChange}
-        phoneChange={phoneChange}
-        emailChange={emailChange}
-        locationChange={locationChange}
-        imageChange={imageChange}
-      />
+      <DisplayAbout aboutData={aboutData} />
       <main className={classes["experience"]}>
         <DisplayWork
           onAddWork={onAddWork}
