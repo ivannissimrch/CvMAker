@@ -4,7 +4,7 @@
     display: flex;   
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);    
     overflow: hidden; 
-    height: 100vh;  
+    min-height: 93.6vh;
   }  
   
   
@@ -12,6 +12,12 @@
     width: 65%;
     padding: 50px;
    
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .cv-section{
+      width: 90%;  
+    }
   }
   
   

@@ -7,4 +7,12 @@
   .work-section{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+  }
+
+
+  @media only screen and (max-width: 1200px) {
+    .experience{
+      width: 45%;  
+    }
   }

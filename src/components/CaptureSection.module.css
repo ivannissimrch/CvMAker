@@ -5,7 +5,7 @@
     width: 40%;  
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);   
     padding: 40px 50px;
-    height: 93.6vh;
+    min-height: 93.6vh;
   }  
   
   
@@ -13,5 +13,11 @@
     padding:5 0px; 
     margin: 3px 0;
     height: 30px;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .edit-section{
+      width: 90%;  
+    }
   }
   
