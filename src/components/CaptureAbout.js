@@ -3,8 +3,9 @@ import classes from "./CaptureAbout.module.css";
 const CaptureAbout = ({ onAboutChange }) => {
   //use state declarations
   const handleImage = (event) => {
+    const property = event.target.name;
     const image = URL.createObjectURL(event.target.files[0]);
-    onAboutChange(image);
+    onAboutChange(property, image);
   };
 
   const [firstName, setFirstName] = useState("");
@@ -74,7 +75,7 @@ const CaptureAbout = ({ onAboutChange }) => {
         className={classes["upload-picture"]}
         type="file"
         id="profile_pic"
-        name="profile_pic"
+        name="image"
         accept=".jpg, .jpeg, .png"
       />
       <input
