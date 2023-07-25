@@ -2,7 +2,7 @@ import Work from "./Work";
 import classes from "./DisplayWork.module.css";
 const DisplayWork = ({ onAddWork, onDeleteWork, onEditWork }) => {
   return (
-    <div className={classes["work-experience"]}>
+    <div className={classes["work"]}>
       <div className={classes["work-section"]}>
         <h2>WORK EXPERIENCE</h2>
         {/* uses the array onAddWork recived from Parent component to look over with map an

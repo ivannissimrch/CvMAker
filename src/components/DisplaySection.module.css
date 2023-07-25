@@ -10,13 +10,14 @@
   
   .experience{
     width: 65%;
-    padding: 50px;
+    padding: 30px;
    
   }
 
-  @media only screen and (max-width: 1200px) {
+  @media  (max-width: 1200px) {
     .cv-section{
-      width: 90%;  
+      width: 95%; 
+      
     }
   }
   

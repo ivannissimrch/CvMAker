@@ -1,18 +1,11 @@
-.experience{
-    width: 65%;
-    padding: 50px;
-   
-  }
+
   
   .work-section{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center;   
+    align-items:flex-start;
+    
+   
   }
 
-
-  @media only screen and (max-width: 1200px) {
-    .experience{
-      width: 45%;  
-    }
-  }
