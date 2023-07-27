@@ -42,7 +42,7 @@ const Education = ({ data, onDeleteEducation, onEditEducation }) => {
     >
       <label>{`${from} - ${to} ${city}`}</label>
       <label>{degree}</label>
-      <label>{university}</label>
+      <label className={classes.university}>{university}</label>
 
       {showButton && buttons}
     </div>

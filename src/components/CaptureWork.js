@@ -14,6 +14,11 @@ const CaptureWork = ({ onWorkChange }) => {
     setCompany(event.target.value);
   };
 
+  const [description, setDescription] = useState("");
+  const handleDescrition = (event) => {
+    setDescription(event.target.value);
+  };
+
   const [city, setCity] = useState("");
   const handleCity = (event) => {
     setCity(event.target.value);
@@ -38,6 +43,7 @@ const CaptureWork = ({ onWorkChange }) => {
       id: `${position}${company}`,
       position,
       company,
+      description,
       city,
       from,
       to,
@@ -45,6 +51,7 @@ const CaptureWork = ({ onWorkChange }) => {
     setPosition("");
     setCompany("");
     setCity("");
+    setDescription("");
     setFrom("");
     setTo("");
   };
@@ -63,6 +70,12 @@ const CaptureWork = ({ onWorkChange }) => {
         placeholder="Company"
         value={company}
         onChange={handleCompany}
+      />
+      <input
+        type="text"
+        placeholder="Job Description"
+        value={description}
+        onChange={handleDescrition}
       />
       <input
         type="text"

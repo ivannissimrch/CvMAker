@@ -3,7 +3,7 @@ import classes from "./AddWork.module.css";
 import EditWork from "./EditWork";
 
 const Work = ({ data, onDeleteWork, onEditWork }) => {
-  const { id, position, company, city, from, to } = data;
+  const { id, position, company, description, city, from, to } = data;
   //use the following states to hide and show components
   const [showButton, setShowButton] = useState(false);
   const [showEditWork, setShowEditwork] = useState(false);
@@ -43,7 +43,8 @@ const Work = ({ data, onDeleteWork, onEditWork }) => {
       onMouseLeave={handleMouseLeave}
     >
       <label>{`${company.toUpperCase()} | ${from} - ${to}`}</label>
-      <label>{`${position}, ${city}`}</label>
+      <label className={classes.position}>{`${position}, ${city}`}</label>
+      <p>{description}</p>
 
       {showButton && buttons}
     </div>

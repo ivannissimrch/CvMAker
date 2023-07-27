@@ -11,6 +11,10 @@ const EditWork = ({ data, closeEdit, onEditWork }) => {
   const handleCompany = (event) => {
     setCompany(event.target.value);
   };
+  const [description, setDescription] = useState(data.description);
+  const handleDescription = (event) => {
+    setDescription(event.target.value);
+  };
   const [city, setCity] = useState(data.city);
   const handleCity = (event) => {
     setCity(event.target.value);
@@ -35,6 +39,7 @@ const EditWork = ({ data, closeEdit, onEditWork }) => {
       id: data.id,
       position,
       company,
+      description,
       city,
       from,
       to,
@@ -53,6 +58,12 @@ const EditWork = ({ data, closeEdit, onEditWork }) => {
         placeholder="Company"
         value={company}
         onChange={handleCompany}
+      />
+      <input
+        type="text"
+        placeholder="Job Description"
+        value={description}
+        onChange={handleDescription}
       />
       <input
         type="text"
