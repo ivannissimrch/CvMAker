@@ -5,6 +5,9 @@ import profileImage from "../images/profile.jpg";
 import { useState } from "react";
 
 const MainContainer = () => {
+  //Using this component  to store state and functions to update the about object,
+  // work and education array of objects
+
   //About section state and handler
   const defaultValues = {
     image: profileImage,
@@ -18,8 +21,11 @@ const MainContainer = () => {
     location: "Location",
   };
 
+  //about object stores informantion entered by the user in the about section, then I send this as props into the DisplaySection to display
+  //the values inside the object
   const [about, setAbout] = useState(defaultValues);
 
+  //handle about changes to update values  entered by user on the capture about section.
   const handleAboutChange = (key, value) => {
     if (value.length <= 0) {
       value = defaultValues[key];
@@ -29,10 +35,10 @@ const MainContainer = () => {
   //About section state and handlers
 
   //Work Experience state and handlers
-  //use state initialize the value of work to an aempy array
+  //use state initialize the value of work to an emtpy array
   const [work, setWork] = useState([]);
-  //add element to work array, it recives an object from captureWork Element and
-  //update the array then we can use the work array to update the work display on
+  //add element to work array, it receives an object from captureWork Element and
+  //updates work array to include that object then we can use the work array to update the work display on
   //DisplayWork
   const handleOnWorkChange = (newWorkData) => {
     setWork((prev) => [...prev, newWorkData]);

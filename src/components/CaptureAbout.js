@@ -3,65 +3,66 @@ import classes from "./CaptureAbout.module.css";
 const CaptureAbout = ({ onAboutChange }) => {
   //use state declarations
   const handleImage = (event) => {
-    const property = event.target.name;
+    const key = event.target.name;
+    //create an URL link to the image selected from ope file input and store it to the variable image
     const image = URL.createObjectURL(event.target.files[0]);
-    onAboutChange(property, image);
+    onAboutChange(key, image);
   };
 
   const [firstName, setFirstName] = useState("");
   const handleFirstName = (event) => {
     setFirstName(event.target.value);
-    const property = event.target.name;
+    const key = event.target.name;
     const value = event.target.value;
-    onAboutChange(property, value);
+    onAboutChange(key, value);
   };
 
   const [lastName, setLastName] = useState("");
   const handleLastName = (event) => {
     setLastName(event.target.value);
-    const property = event.target.name;
+    const key = event.target.name;
     const value = event.target.value;
-    onAboutChange(property, value);
+    onAboutChange(key, value);
   };
 
   const [title, setTitle] = useState("");
   const handleTitle = (event) => {
     setTitle(event.target.value);
-    const property = event.target.name;
+    const key = event.target.name;
     const value = event.target.value;
-    onAboutChange(property, value);
+    onAboutChange(key, value);
   };
 
   const [about, setAbout] = useState("");
   const handleAbout = (event) => {
     setAbout(event.target.value);
-    const property = event.target.name;
+    const key = event.target.name;
     const value = event.target.value;
-    onAboutChange(property, value);
+    onAboutChange(key, value);
   };
 
   const [phone, setPhone] = useState("");
   const handlePhone = (event) => {
     setPhone(event.target.value);
-    const property = event.target.name;
+    const key = event.target.name;
     const value = event.target.value;
-    onAboutChange(property, value);
+    onAboutChange(key, value);
   };
 
   const [email, setEmail] = useState("");
   const handleEmail = (event) => {
     setEmail(event.target.value);
-    const property = event.target.name;
+    const key = event.target.name;
     const value = event.target.value;
-    onAboutChange(property, value);
+    onAboutChange(key, value);
   };
 
   const [location, setLocation] = useState("");
   const handleLocation = (event) => {
     setLocation(event.target.value);
-    const property = event.target.name;
+    const key = event.target.name;
     const value = event.target.value;
-    onAboutChange(property, value);
+    onAboutChange(key, value);
   };
 
   return (

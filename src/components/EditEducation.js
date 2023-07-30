@@ -29,7 +29,7 @@ const EditEducation = ({ data, closeEdit, onEditEducation }) => {
   };
   //state value declaration and handlers to set new value while editing Work element
 
-  //use on editEducation to send new object to parent elemet to update old object
+  //use on editEducation to send new object values to parent elemet to update old object values
   const handleSubmit = (event) => {
     event.preventDefault();
     closeEdit();
@@ -42,6 +42,7 @@ const EditEducation = ({ data, closeEdit, onEditEducation }) => {
       to,
     });
   };
+  //use on editEducation to send new object values to parent elemet to update old object values
   return (
     <form className={classes["experience-edit"]} onSubmit={handleSubmit}>
       <input

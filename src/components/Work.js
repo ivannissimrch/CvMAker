@@ -29,12 +29,14 @@ const Work = ({ data, onDeleteWork, onEditWork }) => {
   //functions to handle Delete, ShowEdit and Show/hide buttons on mouse enter and
   //mouse leave
 
+  //buttons to be display on mouse over
   const buttons = (
     <div>
       <button onClick={handleShowEdit}>Edit</button>{" "}
       <button onClick={handleDelete}>Delete</button>{" "}
     </div>
   );
+  //buttons to be display on mouse over
 
   const work = (
     <div

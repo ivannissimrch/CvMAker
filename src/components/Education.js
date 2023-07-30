@@ -27,12 +27,15 @@ const Education = ({ data, onDeleteEducation, onEditEducation }) => {
   };
   //functions to handle Delete, ShowEdit and Show/hide buttons on mouse enter and
   //mouse leave
+
+  //buttons to be display on mouseover
   const buttons = (
     <div>
       <button onClick={handleShowEdit}>Edit</button>{" "}
       <button onClick={handleDelete}>Delete</button>{" "}
     </div>
   );
+  //buttons to be display on mouseover
 
   const education = (
     <div
