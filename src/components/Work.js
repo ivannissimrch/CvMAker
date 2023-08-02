@@ -2,8 +2,9 @@ import { Fragment, useState } from "react";
 import classes from "./AddWork.module.css";
 import EditWork from "./EditWork";
 
-const Work = ({ data, onDeleteWork, onEditWork }) => {
-  const { id, position, company, description, city, from, to } = data;
+const Work = ({ workData, onDeleteWork, onEditWork }) => {
+  const { id, position, company, description, city, startDate, endDate } =
+    workData;
   //use the following states to hide and show components
   const [showButton, setShowButton] = useState(false);
   const [showEditWork, setShowEditwork] = useState(false);
@@ -44,7 +45,7 @@ const Work = ({ data, onDeleteWork, onEditWork }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <label>{`${company.toUpperCase()} | ${from} - ${to}`}</label>
+      <label>{`${company.toUpperCase()} | ${startDate} - ${endDate}`}</label>
       <label className={classes.position}>{`${position}, ${city}`}</label>
       <p>{description}</p>
 
@@ -57,7 +58,7 @@ const Work = ({ data, onDeleteWork, onEditWork }) => {
       {showWork && work}
       {showEditWork && (
         <EditWork
-          data={data}
+          workData={workData}
           closeEdit={handleShowEdit}
           onEditWork={onEditWork}
         />

@@ -1,7 +1,7 @@
 import Education from "./Education";
 import classes from "./DisplayEducation.module.css";
 const DisplayEducation = ({
-  onAddEducation,
+  educationArray,
   onDeleteEducation,
   onEditEducation,
 }) => {
@@ -13,10 +13,10 @@ const DisplayEducation = ({
       and the creates one Work element per each object inside that array. 
       the pass data as props in here data is and object with the correcsponding data from
        onAddwork array*/}
-        {onAddEducation.map((item) => (
+        {educationArray.map((item) => (
           <Education
             key={item.id}
-            data={item}
+            educationData={item}
             onDeleteEducation={onDeleteEducation}
             onEditEducation={onEditEducation}
           />

@@ -99,8 +99,8 @@ const MainContainer = () => {
       />
       <DisplaySection
         aboutData={about}
-        onAddWork={work}
-        onAddEducation={education}
+        workArray={work}
+        educationArray={education}
         onDeleteWork={deleteWork}
         onEditWork={editWork}
         onDeleteEducation={deleteEducation}

@@ -1,31 +1,31 @@
 import { useState } from "react";
 import classes from "./CaptureWork.module.css";
 
-const EditEducation = ({ data, closeEdit, onEditEducation }) => {
+const EditEducation = ({ educationData, closeEdit, onEditEducation }) => {
   //state value declaration and handlers to set new value while editing Work element
-  const [university, setUniversity] = useState(data.university);
+  const [university, setUniversity] = useState(educationData.university);
   const handleUniversity = (event) => {
     setUniversity(event.target.value);
   };
 
-  const [degree, setDegree] = useState(data.degree);
+  const [degree, setDegree] = useState(educationData.degree);
   const handleDegree = (event) => {
     setDegree(event.target.value);
   };
 
-  const [city, setCity] = useState(data.city);
+  const [city, setCity] = useState(educationData.city);
   const handleCity = (event) => {
     setCity(event.target.value);
   };
 
-  const [from, setFrom] = useState(data.from);
-  const handleFrom = (event) => {
-    setFrom(event.target.value);
+  const [startDate, setStartDate] = useState(educationData.from);
+  const handleStartDate = (event) => {
+    setStartDate(event.target.value);
   };
 
-  const [to, setTo] = useState(data.to);
-  const handleTo = (event) => {
-    setTo(event.target.value);
+  const [endDate, setEndDate] = useState(educationData.to);
+  const handleEndDate = (event) => {
+    setEndDate(event.target.value);
   };
   //state value declaration and handlers to set new value while editing Work element
 
@@ -34,12 +34,12 @@ const EditEducation = ({ data, closeEdit, onEditEducation }) => {
     event.preventDefault();
     closeEdit();
     onEditEducation({
-      id: data.id,
+      id: educationData.id,
       university,
       degree,
       city,
-      from,
-      to,
+      startDate,
+      endDate,
     });
   };
   //use on editEducation to send new object values to parent elemet to update old object values
@@ -63,13 +63,8 @@ const EditEducation = ({ data, closeEdit, onEditEducation }) => {
         value={city}
         onChange={handleCity}
       />
-      <input
-        type="number"
-        placeholder="From"
-        value={from}
-        onChange={handleFrom}
-      />
-      <input type="number" placeholder="To" value={to} onChange={handleTo} />
+      <input type="date" value={startDate} onChange={handleStartDate} />
+      <input type="date" value={endDate} onChange={handleEndDate} />
 
       <button type="submit" id="add-education">
         Save Changes

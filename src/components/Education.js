@@ -1,8 +1,8 @@
 import classes from "./AddWork.module.css";
 import { Fragment, useState } from "react";
 import EditEducation from "./EditEducation";
-const Education = ({ data, onDeleteEducation, onEditEducation }) => {
-  const { id, university, degree, city, from, to } = data;
+const Education = ({ educationData, onDeleteEducation, onEditEducation }) => {
+  const { id, university, degree, city, startDate, endDate } = educationData;
   //use the following states to hide and show components
   const [showButton, setShowButton] = useState(false);
   const [showEditEducation, setShowEditEducation] = useState(false);
@@ -43,7 +43,7 @@ const Education = ({ data, onDeleteEducation, onEditEducation }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <label>{`${from} - ${to} ${city}`}</label>
+      <label>{`${startDate} - ${endDate},  ${city}`}</label>
       <label>{degree}</label>
       <label className={classes.university}>{university}</label>
 
@@ -56,7 +56,7 @@ const Education = ({ data, onDeleteEducation, onEditEducation }) => {
       {showEducation && education}
       {showEditEducation && (
         <EditEducation
-          data={data}
+          educationData={educationData}
           closeEdit={handleShowEdit}
           onEditEducation={onEditEducation}
         />

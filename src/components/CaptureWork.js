@@ -24,14 +24,14 @@ const CaptureWork = ({ onWorkChange }) => {
     setCity(event.target.value);
   };
 
-  const [from, setFrom] = useState("");
-  const handleFrom = (event) => {
-    setFrom(event.target.value);
+  const [startDate, setStartDate] = useState("");
+  const handleStartDate = (event) => {
+    setStartDate(event.target.value);
   };
 
-  const [to, setTo] = useState("");
-  const handleTo = (event) => {
-    setTo(event.target.value);
+  const [endDate, setEndDate] = useState("");
+  const handleEndDate = (event) => {
+    setEndDate(event.target.value);
   };
   //Declare state management variables  and their corresponding functions
   // to set new state on new values on inputs
@@ -45,15 +45,15 @@ const CaptureWork = ({ onWorkChange }) => {
       company,
       description,
       city,
-      from,
-      to,
+      startDate,
+      endDate,
     });
     setPosition("");
     setCompany("");
     setCity("");
     setDescription("");
-    setFrom("");
-    setTo("");
+    setStartDate("");
+    setEndDate("");
   };
   //handleSubmit function sends a new object to the parent element using the onWorkChange function
   return (
@@ -83,13 +83,8 @@ const CaptureWork = ({ onWorkChange }) => {
         value={city}
         onChange={handleCity}
       />
-      <input
-        type="number"
-        placeholder="From"
-        value={from}
-        onChange={handleFrom}
-      />
-      <input type="number" placeholder="To" value={to} onChange={handleTo} />
+      <input type="date" value={startDate} onChange={handleStartDate} />
+      <input type="date" value={endDate} onChange={handleEndDate} />
 
       <button type="submit" id="add-work">
         Add

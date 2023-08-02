@@ -102,7 +102,7 @@ const CaptureAbout = ({ onAboutChange }) => {
       />
       <textarea
         type="text"
-        placeholder="About me "
+        placeholder="About me"
         name="about"
         value={about}
         onChange={handleAbout}

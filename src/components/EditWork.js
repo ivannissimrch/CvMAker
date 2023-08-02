@@ -1,33 +1,34 @@
 import { useState } from "react";
 import classes from "./CaptureWork.module.css";
 
-const EditWork = ({ data, closeEdit, onEditWork }) => {
+const EditWork = ({ workData, closeEdit, onEditWork }) => {
   //state value declaration and handlers to set new value while editing Work element
-  const [position, setPosition] = useState(data.position);
+
+  const [position, setPosition] = useState(workData.position);
   const handlePosition = (event) => {
     setPosition(event.target.value);
   };
-  const [company, setCompany] = useState(data.company);
+  const [company, setCompany] = useState(workData.company);
   const handleCompany = (event) => {
     setCompany(event.target.value);
   };
-  const [description, setDescription] = useState(data.description);
+  const [description, setDescription] = useState(workData.description);
   const handleDescription = (event) => {
     setDescription(event.target.value);
   };
-  const [city, setCity] = useState(data.city);
+  const [city, setCity] = useState(workData.city);
   const handleCity = (event) => {
     setCity(event.target.value);
   };
 
-  const [from, setFrom] = useState(data.from);
-  const handleFrom = (event) => {
-    setFrom(event.target.value);
+  const [startDate, setStartDate] = useState(workData.from);
+  const handleStartDate = (event) => {
+    setStartDate(event.target.value);
   };
 
-  const [to, setTo] = useState(data.to);
-  const handleTo = (event) => {
-    setTo(event.target.value);
+  const [endDate, setEndDate] = useState(workData.to);
+  const handleEndDate = (event) => {
+    setEndDate(event.target.value);
   };
   //state value declaration and handlers to set new value while editing Work element
 
@@ -36,13 +37,13 @@ const EditWork = ({ data, closeEdit, onEditWork }) => {
     event.preventDefault();
     closeEdit();
     onEditWork({
-      id: data.id,
+      id: workData.id,
       position,
       company,
       description,
       city,
-      from,
-      to,
+      startDate,
+      endDate,
     });
   };
   //use on editWork to send new object values to parent element to update old object values
@@ -72,13 +73,8 @@ const EditWork = ({ data, closeEdit, onEditWork }) => {
         value={city}
         onChange={handleCity}
       />
-      <input
-        type="number"
-        placeholder="From"
-        value={from}
-        onChange={handleFrom}
-      />
-      <input type="number" placeholder="To" value={to} onChange={handleTo} />
+      <input type="date" value={startDate} onChange={handleStartDate} />
+      <input type="date" value={endDate} onChange={handleEndDate} />
 
       <button type="submit" id="add-work">
         Save Changes

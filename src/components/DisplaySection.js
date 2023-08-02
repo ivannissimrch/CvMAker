@@ -4,8 +4,8 @@ import DisplayEducation from "./DisplayEducation";
 import DisplayWork from "./DisplayWork";
 const DisplaySection = ({
   aboutData,
-  onAddWork,
-  onAddEducation,
+  workArray,
+  educationArray,
   onDeleteEducation,
   onDeleteWork,
   onEditWork,
@@ -16,12 +16,12 @@ const DisplaySection = ({
       <DisplayAbout aboutData={aboutData} />
       <main className={classes["experience"]}>
         <DisplayWork
-          onAddWork={onAddWork}
+          workArray={workArray}
           onDeleteWork={onDeleteWork}
           onEditWork={onEditWork}
         />
         <DisplayEducation
-          onAddEducation={onAddEducation}
+          educationArray={educationArray}
           onDeleteEducation={onDeleteEducation}
           onEditEducation={onEditEducation}
         />
