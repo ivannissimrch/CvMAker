@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import classes from "./CaptureEducation.module.css";
+import classes from "./Form.module.css";
 //import v4 mthod from the euuid library to use it to generate an unique id.
 import { v4 as uuidv4 } from "uuid";
-const Form = ({ onWorkChange, type, onEducationChange, ...data }) => {
-  //Declare state management variables  and their corresponding functions
-  // to set new state on new values on inputs
+const Form = ({ type, action }) => {
+  //TODO  I need to update all this comments...
+
+  //states to conditionaly render inputs on form
   const [isWorkForm, setIsWorkForm] = useState(false);
   const [isEducationForm, setIsEducationForm] = useState(true);
+  // states to conditionaly render inputs on form
 
   useEffect(() => {
     if (type === "work") {
@@ -15,6 +17,7 @@ const Form = ({ onWorkChange, type, onEducationChange, ...data }) => {
     }
   }, [type]);
 
+  //default values migth change this latter on.
   const defaultValues = {
     position: "",
     company: "",
@@ -25,7 +28,8 @@ const Form = ({ onWorkChange, type, onEducationChange, ...data }) => {
     startDate: "",
     endDate: "",
   };
-
+  //default values migth change this latter on.
+  //set form state to default values nad destructure values
   const [formData, setFormData] = useState(defaultValues);
   const {
     university,
@@ -37,39 +41,28 @@ const Form = ({ onWorkChange, type, onEducationChange, ...data }) => {
     company,
     description,
   } = formData;
+  //set form state to default values nad destructure values
 
+  //handle changes on input values
   const handleFormDataChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
-
-  //Declare state management variables  and their corresponding functions
-  // to set new state on new values on inputs
+  //handle changes on input values
 
   //handleSubmit function sends a new object to the parent element using the onEducationChange function
   const handleSubmit = (event) => {
     event.preventDefault();
     //call uuidv4 method to generate a unique id and asing that value to the id variable
     const id = uuidv4();
-    if (type === "education") {
-      onEducationChange({
-        id,
-        ...formData,
-      });
-    }
-    if (type === "work") {
-      onWorkChange({
-        id,
-        ...formData,
-      });
-    }
+    action({ id, ...formData });
 
     setFormData(defaultValues);
   };
   //handleSubmit function sends a new object to the parent element using the onEducationChange function
 
   return (
-    <form className={classes["education-edit"]} onSubmit={handleSubmit}>
+    <form className={classes["form"]} onSubmit={handleSubmit}>
       {isEducationForm && <label>EDUCATION</label>}
       {isWorkForm && <label>WORK EXPERIENCE</label>}
 

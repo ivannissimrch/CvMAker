@@ -93,6 +93,9 @@ const MainContainer = () => {
   return (
     <div className={classes["main-container"]}>
       <CaptureSection
+        workArray={work}
+        onDeleteWork={deleteWork}
+        onEditWork={editWork}
         onAboutChange={handleAboutChange}
         onWorkChange={handleOnWorkChange}
         onEducationChange={handleOnEducationChange}

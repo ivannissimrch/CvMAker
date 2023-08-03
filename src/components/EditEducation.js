@@ -1,5 +1,5 @@
 import { useState } from "react";
-import classes from "./CaptureWork.module.css";
+import classes from "./Form.module.css";
 
 const EditEducation = ({ educationData, closeEdit, onEditEducation }) => {
   //state value declaration and handlers to set new value while editing Work element
@@ -44,7 +44,7 @@ const EditEducation = ({ educationData, closeEdit, onEditEducation }) => {
   };
   //use on editEducation to send new object values to parent elemet to update old object values
   return (
-    <form className={classes["experience-edit"]} onSubmit={handleSubmit}>
+    <form className={classes["form"]} onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="University"

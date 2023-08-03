@@ -1,14 +1,25 @@
 import CaptureAbout from "./CaptureAbout";
-// import CaptureEducation from "./CaptureEducation";
 import Form from "./Form";
-// import CaptureWork from "./CaptureWork";
 import classes from "./CaptureSection.module.css";
-const CaptureSection = ({ onAboutChange, onWorkChange, onEducationChange }) => {
+import Worklist from "./WorkList";
+const CaptureSection = ({
+  onAboutChange,
+  onWorkChange,
+  onEducationChange,
+  onDeleteWork,
+  onEditWork,
+  workArray,
+}) => {
   return (
     <section className={classes["edit-section"]}>
       <CaptureAbout onAboutChange={onAboutChange} />
-      <Form onWorkChange={onWorkChange} type="work" />
-      <Form onEducationChange={onEducationChange} type="education" />
+      <Form action={onWorkChange} type="work" />
+      <Worklist
+        workArray={workArray}
+        onDeleteWork={onDeleteWork}
+        onEditWork={onEditWork}
+      />
+      <Form action={onEducationChange} type="education" />
     </section>
   );
 };
