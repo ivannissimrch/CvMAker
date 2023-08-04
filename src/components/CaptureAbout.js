@@ -1,6 +1,8 @@
 import { useState } from "react";
 import classes from "./CaptureAbout.module.css";
 const CaptureAbout = ({ onAboutChange }) => {
+  //TODO refactor this code
+
   //use state declarations
   const handleImage = (event) => {
     const key = event.target.name;

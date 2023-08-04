@@ -2,20 +2,17 @@ import { useEffect, useState } from "react";
 import classes from "./Form.module.css";
 //import v4 mthod from the euuid library to use it to generate an unique id.
 import { v4 as uuidv4 } from "uuid";
-const Form = ({ type, action }) => {
-  //TODO  I need to update all this comments...
+const Form = ({ type, data = {}, action, closeForm }) => {
+  //TODO  I need to update all this comments... and refactor this code, it works but I can improve it
 
   //states to conditionaly render inputs on form
   const [isWorkForm, setIsWorkForm] = useState(false);
   const [isEducationForm, setIsEducationForm] = useState(true);
   // states to conditionaly render inputs on form
-
-  useEffect(() => {
-    if (type === "work") {
-      setIsEducationForm(false);
-      setIsWorkForm(true);
-    }
-  }, [type]);
+  let btnMessage = "Add";
+  if (type === "work-editing" || type === "education-editing") {
+    btnMessage = "Save";
+  }
 
   //default values migth change this latter on.
   const defaultValues = {
@@ -28,8 +25,7 @@ const Form = ({ type, action }) => {
     startDate: "",
     endDate: "",
   };
-  //default values migth change this latter on.
-  //set form state to default values nad destructure values
+  //set form state to default values and  destructure values
   const [formData, setFormData] = useState(defaultValues);
   const {
     university,
@@ -41,7 +37,25 @@ const Form = ({ type, action }) => {
     company,
     description,
   } = formData;
-  //set form state to default values nad destructure values
+  //set form state to default values and destructure values
+
+  useEffect(() => {
+    if (type === "work" || type === "work-editing") {
+      setIsEducationForm(false);
+      setIsWorkForm(true);
+    }
+    if (type === "work-editing") {
+      setFormData(data);
+    }
+
+    if (type === "education" || type === "education-editing") {
+      setIsEducationForm(true);
+      setIsWorkForm(false);
+    }
+    if (type === "education-editing") {
+      setFormData(data);
+    }
+  }, [type, data]);
 
   //handle changes on input values
   const handleFormDataChange = (event) => {
@@ -50,16 +64,23 @@ const Form = ({ type, action }) => {
   };
   //handle changes on input values
 
-  //handleSubmit function sends a new object to the parent element using the onEducationChange function
+  //handleSubmit function sends a new object to the parent element using the action function
   const handleSubmit = (event) => {
     event.preventDefault();
-    //call uuidv4 method to generate a unique id and asing that value to the id variable
+
+    //if i'm editing a form don't add new id
+    if (type === "work-editing" || type === "education-editing") {
+      action(formData);
+      closeForm();
+    }
+    //if i'm editing a form don't add new id
+    //else call uuidv4 method to generate a unique id and asing that value to the id variable
     const id = uuidv4();
     action({ id, ...formData });
 
     setFormData(defaultValues);
   };
-  //handleSubmit function sends a new object to the parent element using the onEducationChange function
+  //handleSubmit function sends a new object to the parent element using the action function
 
   return (
     <form className={classes["form"]} onSubmit={handleSubmit}>
@@ -130,9 +151,7 @@ const Form = ({ type, action }) => {
         name="endDate"
         value={endDate}
       />
-      <button type="submit" id="add-edu">
-        Add
-      </button>
+      <button type="submit">{btnMessage}</button>
     </form>
   );
 };

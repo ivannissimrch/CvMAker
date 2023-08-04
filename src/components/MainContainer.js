@@ -78,7 +78,6 @@ const MainContainer = () => {
   };
   //edit element on education array
   const editEducation = (updatedValues) => {
-    console.log(updatedValues);
     const updateEducation = education.map((edu) => {
       if (edu.id === updatedValues.id) {
         return { ...edu, ...updatedValues };
@@ -96,6 +95,9 @@ const MainContainer = () => {
         workArray={work}
         onDeleteWork={deleteWork}
         onEditWork={editWork}
+        educationArray={education}
+        onDeleteEducation={deleteEducation}
+        onEditEducation={editEducation}
         onAboutChange={handleAboutChange}
         onWorkChange={handleOnWorkChange}
         onEducationChange={handleOnEducationChange}

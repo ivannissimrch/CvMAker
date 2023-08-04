@@ -1,32 +1,37 @@
 import { useState } from "react";
 import classes from "./WorkList.module.css";
+//change this css module to education list or remane the css module
 import Form from "./Form";
-const Worklist = ({ workArray, onDeleteWork, onEditWork }) => {
+const Educationlist = ({
+  educationArray,
+  onDeleteEducation,
+  onEditEducation,
+}) => {
   const [showForm, setShowForm] = useState(false);
-  const [showWork, setShowWork] = useState(true);
+  const [showEducation, setShowEducation] = useState(true);
   const [dataToBeEdited, setDataToBeEdited] = useState("");
   const handleClickDelete = (id) => {
-    onDeleteWork(id);
+    onDeleteEducation(id);
   };
 
   const ExitEditMode = () => {
     setShowForm(!showForm);
-    setShowWork(!showWork);
+    setShowEducation(!showEducation);
   };
 
-  const handleClickEdit = (workObject) => {
+  const handleClickEdit = (educationObject) => {
     setShowForm(!showForm);
-    setShowWork(!showWork);
-    setDataToBeEdited(workObject);
+    setShowEducation(!showEducation);
+    setDataToBeEdited(educationObject);
   };
 
   return (
     <div className={classes["work-list"]}>
-      {workArray.map(
+      {educationArray.map(
         (item) =>
-          showWork && (
+          showEducation && (
             <div key={item.id}>
-              <div>{`${item.position} ${item.company}`}</div>
+              <div>{`${item.university} ${item.degree}`}</div>
               <div>
                 <button onClick={() => handleClickEdit(item)}>edit</button>
                 <button onClick={() => handleClickDelete(item.id)}>
@@ -38,9 +43,9 @@ const Worklist = ({ workArray, onDeleteWork, onEditWork }) => {
       )}
       {showForm && (
         <Form
-          type="work-editing"
+          type="education-editing"
           data={dataToBeEdited}
-          action={onEditWork}
+          action={onEditEducation}
           closeForm={ExitEditMode}
         />
       )}
@@ -48,4 +53,4 @@ const Worklist = ({ workArray, onDeleteWork, onEditWork }) => {
   );
 };
 
-export default Worklist;
+export default Educationlist;

@@ -2,6 +2,7 @@ import CaptureAbout from "./CaptureAbout";
 import Form from "./Form";
 import classes from "./CaptureSection.module.css";
 import Worklist from "./WorkList";
+import Educationlist from "./EducationList";
 const CaptureSection = ({
   onAboutChange,
   onWorkChange,
@@ -9,6 +10,9 @@ const CaptureSection = ({
   onDeleteWork,
   onEditWork,
   workArray,
+  educationArray,
+  onDeleteEducation,
+  onEditEducation,
 }) => {
   return (
     <section className={classes["edit-section"]}>
@@ -20,6 +24,11 @@ const CaptureSection = ({
         onEditWork={onEditWork}
       />
       <Form action={onEducationChange} type="education" />
+      <Educationlist
+        educationArray={educationArray}
+        onDeleteEducation={onDeleteEducation}
+        onEditEducation={onEditEducation}
+      />
     </section>
   );
 };

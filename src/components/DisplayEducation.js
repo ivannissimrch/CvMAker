@@ -1,10 +1,6 @@
 import Education from "./Education";
 import classes from "./DisplayEducation.module.css";
-const DisplayEducation = ({
-  educationArray,
-  onDeleteEducation,
-  onEditEducation,
-}) => {
+const DisplayEducation = ({ educationArray }) => {
   return (
     <div className={classes["education"]}>
       <div className={classes["education-section"]}>
@@ -14,12 +10,7 @@ const DisplayEducation = ({
       the pass data as props in here data is and object with the correcsponding data from
        onAddwork array*/}
         {educationArray.map((item) => (
-          <Education
-            key={item.id}
-            educationData={item}
-            onDeleteEducation={onDeleteEducation}
-            onEditEducation={onEditEducation}
-          />
+          <Education key={item.id} educationData={item} />
         ))}
       </div>
     </div>
