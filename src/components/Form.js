@@ -1,61 +1,38 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import classes from "./Form.module.css";
 //import v4 mthod from the euuid library to use it to generate an unique id.
 import { v4 as uuidv4 } from "uuid";
 const Form = ({ type, data = {}, action, closeForm }) => {
-  //TODO  I need to update all this comments... and refactor this code, it works but I can improve it
-
-  //states to conditionaly render inputs on form
-  const [isWorkForm, setIsWorkForm] = useState(false);
-  const [isEducationForm, setIsEducationForm] = useState(true);
-  // states to conditionaly render inputs on form
+  let inputValues = {};
   let btnMessage = "Add";
+  //TODO change the props name type to formType
+  let formTitle = type;
   if (type === "work-editing" || type === "education-editing") {
     btnMessage = "Save";
+    inputValues = data;
   }
 
-  //default values migth change this latter on.
-  const defaultValues = {
-    position: "",
-    company: "",
-    description: "",
-    university: "",
-    degree: "",
-    city: "",
-    startDate: "",
-    endDate: "",
-  };
-  //set form state to default values and  destructure values
-  const [formData, setFormData] = useState(defaultValues);
-  const {
-    university,
-    degree,
-    city,
-    startDate,
-    endDate,
-    position,
-    company,
-    description,
-  } = formData;
-  //set form state to default values and destructure values
+  if (type === "work") {
+    inputValues = {
+      position: "",
+      company: "",
+      description: "",
+      city: "",
+      startDate: "",
+      endDate: "",
+    };
+  }
+  if (type === "education") {
+    inputValues = {
+      university: "",
+      degree: "",
+      city: "",
+      startDate: "",
+      endDate: "",
+    };
+  }
 
-  useEffect(() => {
-    if (type === "work" || type === "work-editing") {
-      setIsEducationForm(false);
-      setIsWorkForm(true);
-    }
-    if (type === "work-editing") {
-      setFormData(data);
-    }
-
-    if (type === "education" || type === "education-editing") {
-      setIsEducationForm(true);
-      setIsWorkForm(false);
-    }
-    if (type === "education-editing") {
-      setFormData(data);
-    }
-  }, [type, data]);
+  const [formData, setFormData] = useState(inputValues);
 
   //handle changes on input values
   const handleFormDataChange = (event) => {
@@ -78,79 +55,26 @@ const Form = ({ type, data = {}, action, closeForm }) => {
     const id = uuidv4();
     action({ id, ...formData });
 
-    setFormData(defaultValues);
+    setFormData(inputValues);
   };
   //handleSubmit function sends a new object to the parent element using the action function
 
   return (
     <form className={classes["form"]} onSubmit={handleSubmit}>
-      {isEducationForm && <label>EDUCATION</label>}
-      {isWorkForm && <label>WORK EXPERIENCE</label>}
+      <label>{formTitle.toUpperCase()}</label>
+      {Object.keys(inputValues).map((inputName) =>
+        inputName === "id" ? null : (
+          <input
+            key={inputName}
+            type={inputName.includes("Date") ? "date" : "text"}
+            onChange={handleFormDataChange}
+            name={inputName}
+            placeholder={inputName}
+            value={formData[inputName]}
+          />
+        )
+      )}
 
-      {isEducationForm && (
-        <input
-          type="text"
-          placeholder="University"
-          onChange={handleFormDataChange}
-          name="university"
-          value={university}
-        />
-      )}
-      {isWorkForm && (
-        <input
-          type="text"
-          placeholder="Position"
-          onChange={handleFormDataChange}
-          name="position"
-          value={position}
-        />
-      )}
-      {isEducationForm && (
-        <input
-          type="text"
-          placeholder="Degree"
-          onChange={handleFormDataChange}
-          name="degree"
-          value={degree}
-        />
-      )}
-      {isWorkForm && (
-        <input
-          type="text"
-          placeholder="Company"
-          name="company"
-          value={company}
-          onChange={handleFormDataChange}
-        />
-      )}
-      {isWorkForm && (
-        <input
-          type="text"
-          placeholder="Job Description"
-          name="description"
-          value={description}
-          onChange={handleFormDataChange}
-        />
-      )}
-      <input
-        type="text"
-        placeholder="city"
-        onChange={handleFormDataChange}
-        name="city"
-        value={city}
-      />
-      <input
-        type="date"
-        onChange={handleFormDataChange}
-        name="startDate"
-        value={startDate}
-      />
-      <input
-        type="date"
-        onChange={handleFormDataChange}
-        name="endDate"
-        value={endDate}
-      />
       <button type="submit">{btnMessage}</button>
     </form>
   );

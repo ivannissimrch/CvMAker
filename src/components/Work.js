@@ -1,11 +1,10 @@
-import classes from "./AddWork.module.css";
+import classes from "./DisplayInformation.module.css";
 
 const Work = ({ workData }) => {
-  const { id, position, company, description, city, startDate, endDate } =
-    workData;
+  const { position, company, description, city, startDate, endDate } = workData;
 
   return (
-    <div className={classes["work-container"]}>
+    <div className={classes["display-information"]}>
       <label>{`${company.toUpperCase()} | ${startDate} - ${endDate}`}</label>
       <label className={classes.position}>{`${position}, ${city}`}</label>
       <p>{description}</p>
