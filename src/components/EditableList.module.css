@@ -1,0 +1,30 @@
+/* .mainContainer{
+    background-color: rgb(197, 195, 193);
+
+} */
+
+.prevContainer{
+    background-color: rgb(223, 221, 219);
+    margin: 5px;
+    display: flex;
+    flex-direction: column;  
+    padding: 5px;
+    
+}
+
+.prevDescription{
+    margin-left: 10px;
+    padding: 5px;
+  
+
+}
+
+.btnContainer{
+    display: flex;
+    justify-content: space-evenly;  
+    
+}
+
+.buttons{
+    width: 50%;
+}
