@@ -20,96 +20,92 @@ const MainContainer = () => {
     email: "Email",
     location: "Location",
   };
-
   //about object stores informantion entered by the user in the about section, then I send this as props into the DisplaySection to display
   //the values inside the object
-  const [about, setAbout] = useState(defaultValues);
+
+  const [aboutData, setAboutData] = useState(defaultValues);
 
   //handle about changes to update values  entered by user on the capture about section.
-  const handleAboutChange = (key, value) => {
+  const handleAboutDataUpdates = (key, value) => {
     if (value.length <= 0) {
       value = defaultValues[key];
     }
-    setAbout((prev) => ({ ...prev, [key]: value }));
+    setAboutData((prev) => ({ ...prev, [key]: value }));
   };
   //About section state and handlers
 
   //Work Experience state and handlers
   //use state initialize the value of work to an emtpy array
-  const [work, setWork] = useState([]);
+  const [workData, setWorkData] = useState([]);
   //add element to work array, it receives an object from captureWork Element and
   //updates work array to include that object then we can use the work array to update the work display on
   //DisplayWork
-  const handleOnWorkChange = (newWorkData) => {
-    setWork((prev) => [...prev, newWorkData]);
+  const handleAddWork = (newWorkData) => {
+    setWorkData((prev) => [...prev, newWorkData]);
   };
   //delete element on work array
-  const deleteWork = (id) => {
-    const updateWork = work.filter((wrk) => {
+  const handleDeleteWork = (id) => {
+    const updateWork = workData.filter((wrk) => {
       return wrk.id !== id;
     });
-    setWork(updateWork);
+    setWorkData(updateWork);
   };
   //edit element on work array
-  const editWork = (updatedValues) => {
-    const updateWork = work.map((wrk) => {
+  const handleEditWork = (updatedValues) => {
+    const updateWork = workData.map((wrk) => {
       if (wrk.id === updatedValues.id) {
         return { ...wrk, ...updatedValues };
       }
       return wrk;
     });
 
-    setWork(updateWork);
+    setWorkData(updateWork);
   };
   //Work Experience state and handlers
 
   //Education state and handlers
-  const [education, setEducation] = useState([]);
+  const [educationData, setEducationData] = useState([]);
   //add element to education array
-  const handleOnEducationChange = (newEducationData) => {
-    setEducation((prev) => [...prev, newEducationData]);
+  const handleAddEducation = (newEducationData) => {
+    setEducationData((prev) => [...prev, newEducationData]);
   };
   //delete element on education array
-  const deleteEducation = (id) => {
-    const updateEducation = education.filter((edu) => {
+  const handleDeleteEducation = (id) => {
+    const updateEducation = educationData.filter((edu) => {
       return edu.id !== id;
     });
-    setEducation(updateEducation);
+    setEducationData(updateEducation);
   };
   //edit element on education array
-  const editEducation = (updatedValues) => {
-    const updateEducation = education.map((edu) => {
+  const handleEditEducation = (updatedValues) => {
+    const updateEducation = educationData.map((edu) => {
       if (edu.id === updatedValues.id) {
         return { ...edu, ...updatedValues };
       }
       return edu;
     });
 
-    setEducation(updateEducation);
+    setEducationData(updateEducation);
   };
   //Education state and handlers
 
   return (
     <div className={classes["main-container"]}>
       <CaptureSection
-        workArray={work}
-        onDeleteWork={deleteWork}
-        onEditWork={editWork}
-        educationArray={education}
-        onDeleteEducation={deleteEducation}
-        onEditEducation={editEducation}
-        onAboutChange={handleAboutChange}
-        onWorkChange={handleOnWorkChange}
-        onEducationChange={handleOnEducationChange}
+        workArray={workData}
+        onDeleteWork={handleDeleteWork}
+        onEditWork={handleEditWork}
+        onAddWork={handleAddWork}
+        educationArray={educationData}
+        onDeleteEducation={handleDeleteEducation}
+        onEditEducation={handleEditEducation}
+        onAddEducation={handleAddEducation}
+        onUpdateAbout={handleAboutDataUpdates}
       />
       <DisplaySection
-        aboutData={about}
-        workArray={work}
-        educationArray={education}
-        onDeleteWork={deleteWork}
-        onEditWork={editWork}
-        onDeleteEducation={deleteEducation}
-        onEditEducation={editEducation}
+        aboutData={aboutData}
+        workArray={workData}
+        educationArray={educationData}
       />
     </div>
   );

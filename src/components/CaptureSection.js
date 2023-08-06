@@ -4,29 +4,29 @@ import classes from "./CaptureSection.module.css";
 import EditableList from "./EditableList";
 
 const CaptureSection = ({
-  onAboutChange,
-  onWorkChange,
-  onEducationChange,
+  onUpdateAbout,
+  onAddWork,
+  onAddEducation,
   onDeleteWork,
   onEditWork,
-  workArray,
-  educationArray,
   onDeleteEducation,
   onEditEducation,
+  workArray,
+  educationArray,
 }) => {
   return (
     <section className={classes["edit-section"]}>
-      <CaptureAbout onAboutChange={onAboutChange} />
-      <Form action={onWorkChange} type="work" />
+      <CaptureAbout onUpdateAbout={onUpdateAbout} />
+      <Form action={onAddWork} formType="work" />
       <EditableList
-        type="work"
+        formType="work-editing"
         dataArray={workArray}
         onDeleteData={onDeleteWork}
         onEditData={onEditWork}
       />
-      <Form action={onEducationChange} type="education" />
+      <Form action={onAddEducation} formType="education" />
       <EditableList
-        type="education"
+        formType="education-editing"
         dataArray={educationArray}
         onDeleteData={onDeleteEducation}
         onEditData={onEditEducation}

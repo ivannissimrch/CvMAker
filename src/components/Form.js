@@ -2,17 +2,21 @@ import { useState } from "react";
 import classes from "./Form.module.css";
 //import v4 mthod from the euuid library to use it to generate an unique id.
 import { v4 as uuidv4 } from "uuid";
-const Form = ({ type, data = {}, action, closeForm }) => {
+const Form = ({ formType, data = {}, action, closeForm }) => {
   let inputValues = {};
+  //Initialize text display in button
   let btnMessage = "Add";
   //TODO change the props name type to formType
-  let formTitle = type;
-  if (type === "work-editing" || type === "education-editing") {
+  let formTitle = formType;
+  //Check to see if this is a form that is editing an exiting object
+  if (formType === "work-editing" || formType === "education-editing") {
     btnMessage = "Save";
     inputValues = data;
   }
+  //Check to see if this is a form that is editing an exiting object
 
-  if (type === "work") {
+  ///Define what inputs do I need for different form types
+  if (formType === "work") {
     inputValues = {
       position: "",
       company: "",
@@ -22,7 +26,7 @@ const Form = ({ type, data = {}, action, closeForm }) => {
       endDate: "",
     };
   }
-  if (type === "education") {
+  if (formType === "education") {
     inputValues = {
       university: "",
       degree: "",
@@ -31,6 +35,7 @@ const Form = ({ type, data = {}, action, closeForm }) => {
       endDate: "",
     };
   }
+  ///Define what inputs do I need for different form types
 
   const [formData, setFormData] = useState(inputValues);
 
@@ -46,11 +51,12 @@ const Form = ({ type, data = {}, action, closeForm }) => {
     event.preventDefault();
 
     //if i'm editing a form don't add new id
-    if (type === "work-editing" || type === "education-editing") {
+    if (formType === "work-editing" || formType === "education-editing") {
       action(formData);
       closeForm();
     }
     //if i'm editing a form don't add new id
+
     //else call uuidv4 method to generate a unique id and asing that value to the id variable
     const id = uuidv4();
     action({ id, ...formData });

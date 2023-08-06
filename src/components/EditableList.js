@@ -2,10 +2,10 @@ import classes from "./EditableList.module.css";
 import { useState } from "react";
 import Form from "./Form";
 
-const EditableList = ({ type, dataArray, onDeleteData, onEditData }) => {
-  const formEditType = `${type}-editing`;
+const EditableList = ({ formType, dataArray, onDeleteData, onEditData }) => {
+  const formEditType = formType;
   const [showForm, setShowForm] = useState(false);
-  const [showWork, setShowWork] = useState(true);
+  const [showList, setShowList] = useState(true);
   const [dataToBeEdited, setDataToBeEdited] = useState("");
   const handleClickDelete = (id) => {
     onDeleteData(id);
@@ -13,12 +13,12 @@ const EditableList = ({ type, dataArray, onDeleteData, onEditData }) => {
 
   const ExitEditMode = () => {
     setShowForm(!showForm);
-    setShowWork(!showWork);
+    setShowList(!showList);
   };
 
   const handleClickEdit = (workObject) => {
     setShowForm(!showForm);
-    setShowWork(!showWork);
+    setShowList(!showList);
     setDataToBeEdited(workObject);
   };
 
@@ -26,7 +26,7 @@ const EditableList = ({ type, dataArray, onDeleteData, onEditData }) => {
     <div className={classes.mainContainer}>
       {dataArray.map(
         (item) =>
-          showWork && (
+          showList && (
             <div key={item.id} className={classes.prevContainer}>
               <div className={classes.prevDescription}>{`${
                 item.position || item.degree
@@ -50,7 +50,7 @@ const EditableList = ({ type, dataArray, onDeleteData, onEditData }) => {
       )}
       {showForm && (
         <Form
-          type={formEditType}
+          formType={formEditType}
           data={dataToBeEdited}
           action={onEditData}
           closeForm={ExitEditMode}

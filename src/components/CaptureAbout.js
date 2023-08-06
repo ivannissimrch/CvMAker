@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import classes from "./CaptureAbout.module.css";
-const CaptureAbout = ({ onAboutChange }) => {
+const CaptureAbout = ({ onUpdateAbout }) => {
   const inputNames = {
     firstName: "First Name",
     lastName: "Last Name",
@@ -19,7 +19,7 @@ const CaptureAbout = ({ onAboutChange }) => {
     if (key === "image") {
       value = URL.createObjectURL(event.target.files[0]);
     }
-    onAboutChange(key, value);
+    onUpdateAbout(key, value);
   };
   //handles value changes on inputs
 
@@ -27,6 +27,7 @@ const CaptureAbout = ({ onAboutChange }) => {
     <Fragment>
       <label>ABOUT ME</label>
       <form className={classes["about-container"]}>
+        {/* input to upload profile picture*/}
         <label
           htmlFor="profile_pic"
           className={classes["upload-picture-label"]}
@@ -41,6 +42,9 @@ const CaptureAbout = ({ onAboutChange }) => {
           accept=".jpg, .jpeg, .png"
           onChange={handleChange}
         />
+        {/* input to upload profile picture */}
+        {/* Iterates throught inputNames Object keys to create input elements*/}
+
         {Object.keys(inputNames).map((input, index) => (
           <input
             key={index}
@@ -50,6 +54,7 @@ const CaptureAbout = ({ onAboutChange }) => {
             onChange={handleChange}
           />
         ))}
+        {/* Iterates throught inputNames Object keys to create input elements */}
       </form>
     </Fragment>
   );
