@@ -28,9 +28,12 @@ const EditableList = ({ formType, dataArray, onDeleteData, onEditData }) => {
         (item) =>
           showList && (
             <div key={item.id} className={classes.prevContainer}>
-              <div className={classes.prevDescription}>{`${
-                item.position || item.degree
-              } ${item.company || item.university}`}</div>
+              <div className={classes.prevDescription}>
+                {item.degree && `${item.degree} `}
+                {item.position && `${item.position} `}
+                {item.university && `${item.university}`}
+                {item.company && `${item.company}`}
+              </div>
               <div className={classes.btnContainer}>
                 <button
                   className={classes.buttons}

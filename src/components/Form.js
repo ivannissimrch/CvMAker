@@ -58,10 +58,12 @@ const Form = ({ formType, data = {}, action, closeForm }) => {
     //if i'm editing a form don't add new id
 
     //else call uuidv4 method to generate a unique id and asing that value to the id variable
-    const id = uuidv4();
-    action({ id, ...formData });
+    else {
+      const id = uuidv4();
+      action({ id, ...formData });
 
-    setFormData(inputValues);
+      setFormData(inputValues);
+    }
   };
   //handleSubmit function sends a new object to the parent element using the action function
 
