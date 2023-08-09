@@ -3,6 +3,7 @@ import CaptureSection from "./CaptureSection";
 import DisplaySection from "./DisplaySection";
 import profileImage from "../images/profile.jpg";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const MainContainer = () => {
   //Using this component  to store state and functions to update the about object,
@@ -41,7 +42,11 @@ const MainContainer = () => {
   //updates work array to include that object then we can use the work array to update the work display on
   //DisplayWork
   const handleAddWork = (newWorkData) => {
-    setWorkData((prev) => [...prev, newWorkData]);
+    const id = uuidv4();
+    const newDataWithID = { ...newWorkData, id };
+    console.log(newWorkData);
+    console.log(newDataWithID);
+    setWorkData((prev) => [...prev, newDataWithID]);
   };
   //delete element on work array
   const handleDeleteWork = (id) => {
@@ -67,7 +72,9 @@ const MainContainer = () => {
   const [educationData, setEducationData] = useState([]);
   //add element to education array
   const handleAddEducation = (newEducationData) => {
-    setEducationData((prev) => [...prev, newEducationData]);
+    const id = uuidv4();
+    const newDataWithID = { ...newEducationData, id };
+    setEducationData((prev) => [...prev, newDataWithID]);
   };
   //delete element on education array
   const handleDeleteEducation = (id) => {
@@ -92,6 +99,7 @@ const MainContainer = () => {
   return (
     <div className={classes["main-container"]}>
       <CaptureSection
+        aboutData={aboutData}
         workArray={workData}
         onDeleteWork={handleDeleteWork}
         onEditWork={handleEditWork}

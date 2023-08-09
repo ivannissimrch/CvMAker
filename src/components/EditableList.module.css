@@ -1,16 +1,16 @@
-/* .mainContainer{
+.mainContainer{
     background-color: rgb(197, 195, 193);
 
-} */
+}
 
-.prevContainer{
+/* .prevContainer{
     background-color: rgb(223, 221, 219);
     margin: 5px;
     display: flex;
     flex-direction: column;  
     padding: 5px;
     
-}
+} */
 
 .prevDescription{
     margin-left: 10px;

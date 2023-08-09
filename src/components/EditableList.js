@@ -2,8 +2,7 @@ import classes from "./EditableList.module.css";
 import { useState } from "react";
 import Form from "./Form";
 
-const EditableList = ({ formType, dataArray, onDeleteData, onEditData }) => {
-  const formEditType = formType;
+const EditableList = ({ dataArray, onDeleteData, onEditData }) => {
   const [showForm, setShowForm] = useState(false);
   const [showList, setShowList] = useState(true);
   const [dataToBeEdited, setDataToBeEdited] = useState("");
@@ -53,7 +52,6 @@ const EditableList = ({ formType, dataArray, onDeleteData, onEditData }) => {
       )}
       {showForm && (
         <Form
-          formType={formEditType}
           data={dataToBeEdited}
           action={onEditData}
           closeForm={ExitEditMode}

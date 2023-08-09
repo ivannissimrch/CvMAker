@@ -14,19 +14,34 @@ const CaptureSection = ({
   workArray,
   educationArray,
 }) => {
+  const workInitialValues = {
+    title: "WORK",
+    company: "",
+    position: "",
+    description: "",
+    city: "",
+    startDate: "",
+    endDate: "",
+  };
+  const eduInitialValues = {
+    title: "EDUCATION",
+    university: "",
+    degree: "",
+    city: "",
+    startDate: "",
+    endDate: "",
+  };
   return (
     <section className={classes["edit-section"]}>
       <CaptureAbout onUpdateAbout={onUpdateAbout} />
-      <Form action={onAddWork} formType="work" />
+      <Form data={workInitialValues} action={onAddWork} />
       <EditableList
-        formType="work-editing"
         dataArray={workArray}
         onDeleteData={onDeleteWork}
         onEditData={onEditWork}
       />
-      <Form action={onAddEducation} formType="education" />
+      <Form data={eduInitialValues} action={onAddEducation} />
       <EditableList
-        formType="education-editing"
         dataArray={educationArray}
         onDeleteData={onDeleteEducation}
         onEditData={onEditEducation}
